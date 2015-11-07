@@ -1,0 +1,62 @@
+\documentclass[a4j,titlepage]{jarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{url}
+
+\title{居酒屋検索システム\\
+外部設計書\\
+第0版}
+\author{株式会社Spirytus}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{はじめに}
+
+\section{データ定義}
+本章では、データベースで管理するデータについて定義します。データベースのテーブルは、表\ref{tables}に示すテーブル群から構成されます。また、これらのテーブル間のつながりを示したER図を別添ファイル「ER図.pdf」に、各テーブルの定義を別添ファイル「データ定義書.pdf」に示します。
+​
+\begin{table}[!htbp]
+\caption{データテーブル一覧}
+\label{tables}
+\begin{center}
+\begin{tabular}{|l|l|l|}\hline
+テーブル名 & 内容 & 詳細\\\hline\hline
+liquors & お酒 & お酒に関する情報\\\hline
+stores & 店舗 & 店舗に関する情報\\\hline
+dishes & 料理 & 料理に関する情報\\\hline
+ingredients & 食材 & 食材に関する情報\\\hline
+resorts & 観光地 & 観光地に関する情報\\\hline
+alcoholics & 酒類 & 酒類に関する情報\\\hline
+brewers & 酒造 & 酒造に関する情報\\\hline
+details & 詳細 & お酒、店舗、郷土料理、観光地の詳細情報\\\hline
+liquor\_text\_reviews & お酒の文章レビュー & お酒の文章レビューに関する情報\\\hline
+liquor\_number\_reviews & お酒の数値レビュー & お酒の数値レビューに関する情報\\\hline
+liquor\_averages & お酒の数値レビューの平均 & お酒の数値レビューの平均に関する情報\\\hline
+store\_text\_reviews & 店舗の文章レビュー & 店舗の文章レビューに関する情報\\\hline
+store\_number\_reviews & 店舗の数値レビュー & 店舗の数値レビューに関する情報\\\hline
+store\_averages & 店舗の数値レビューの平均 & 店舗の数値レビューの平均に関する情報\\\hline
+users & ユーザ & ユーザに関する情報\\\hline
+store\_users & 店舗ユーザ & 店舗ユーザに関する情報\\\hline
+store\_liquors & 店舗にあるお酒 & 店舗とお酒を関連付ける情報\\\hline
+store\_dishes & 店舗にある料理 & 店舗と料理を関連付ける情報\\\hline
+desh\_ingredients & 料理の食材 & 料理と食材を関連付ける情報\\\hline
+liquor\_details & お酒の詳細 & お酒と詳細を関連付ける情報\\\hline
+store\_details & 店舗の詳細 & 店舗と詳細を関連付ける情報\\\hline
+local\_dishes\_details & 郷土料理の詳細 & 郷土料理と詳細を関連付ける情報\\\hline
+resort\_details & 観光地の詳細 & 観光地と詳細を関連付ける情報\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\section{ユーザインタフェース設計}
+
+\section{ネットワーク設計}
+
+\section{セキュリティ対策}
+
+\section{障害対策}
+
+\end{document}
