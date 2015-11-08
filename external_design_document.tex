@@ -111,6 +111,19 @@ resort\_details & 観光地の詳細 & 観光地と詳細を関連付ける情�
 \section{ユーザインタフェース設計}
 
 \section{ネットワーク設計}
+本システムは図\ref{net}のようにHTTPを用いてクライアントとサーバのやり取りを行います。
+\bigin{enumerate}
+  \item クライアント側がサーバ側に「リクエスト」を送信します
+  \item サーバ側でリクエストの解析・処理してリクエストの答えを作ります
+  \item サーバ側がクライアント側に「レスポンス」を返します
+\end{enumerate}
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{net.eps}
+    \captin{クライアントとサーバのやり取り}
+    \label{net}
+  \end{center}
+\end{figure}
 
 \section{セキュリティ対策}
 \subsection{不正アクセス対策}
