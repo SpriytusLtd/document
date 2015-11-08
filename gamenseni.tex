@@ -1,0 +1,349 @@
+ss[a4j,titlepage]{jarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{url}
+
+\title{居酒屋検索システム\\
+外部設計書\\
+第0版}
+\author{株式会社Spirytus}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{ユーザインターフェース}
+まずトップ画面より、お酒の種類、味、アルコール度数から居酒屋を検索できる画面（図１）を表示する。
+またタブ画面内において、高知県の代表的なお酒の説明を掲載する。
+タブ画面外では高知県のお土産ベスト３を紹介し、各お土産の写真や説明を適宜記載する。
+また高知県のイベント情報欄を作成し、月ごと（もしくは年間表）で高知県のイベント情報を記載する。
+図 ~\ref{fig:1}
+図１の画面より「お酒の種類」をクリックすることで、全てのお酒の種類が表示される画面（図２）に遷移する。
+図 ~\ref{fig:2}
+図２の画面よりお酒の種類（ビールやカクテル等）をクリックすることで、選択した種類に当てはまる酒名を表示する画面（図３）に遷移する。（ここでは例として「焼酎」を選択）
+図 ~\ref{fig:3}
+図３の画面より酒名をクリックすることで、選択したお酒の詳細情報およびそのお酒を扱っている店舗の一覧表が表示される画面（図４）に遷移する。（ここでは例として「ダバダ火振」を選択）
+図 ~\ref{fig:4}
+図４の画面より店舗名をクリックすることで、選択した店舗の詳細情報が表示される画面（図５）に遷移する。
+図 ~\ref{fig:5}
+図１の画面より「お酒の味」をクリックすることで、全てのお酒の味が表示される画面（図６）に遷移する。
+図 ~\ref{fig:6}
+図６の画面よりお酒の味（甘いや辛い等）をクリックすることで、選択した味に当てはまる酒名を表示する画面（図７）に遷移する（ここでは例として「しぶい」を選択）。その後酒名を選択することで、選択したお酒の詳細情報画面（図４）に遷移する。
+図 ~\ref{fig:7}
+次にトップ画面より、高知の食材（魚、肉、野菜）、郷土料理から居酒屋を検索できる画面（図８）を表示する。またタブ画面内において、高知県の代表的な食材の説明を掲載する。タブ画面外の高知県のお土産ベスト３および、高知県のイベント情報は、お酒から検索できる画面と同様で変化しない。
+図 ~\ref{fig:8}
+図８の画面より、例として「高知の野菜」をクリックすることで、有名な（出荷量が多い、知名度の高い）高知の野菜が表示される画面（図９）に遷移する。
+図 ~\ref{fig:9}
+図９の画面より、表示された野菜名をクリックすることで、選択した野菜の説明およびその食材がどのような料理に扱われているのかを示した画面（図１０）が表示される（ここでは例として「ゆず」を選択）。またこの画面から、この野菜を扱った料理を提供している居酒屋を検索することができる。
+図 ~\ref{fig:10}
+図１０の画面より、「この野菜を扱っている居酒屋を検索」をクリックすることで、選択した野菜を扱っている居酒屋を全て表示する画面（図１１）に遷移する。その後、気になる居酒屋を選択しクリックすることで、その店舗の詳細情報を表示する画面（図５）へ遷移する。
+図 ~\ref{fig:11}
+※高知の魚、肉、郷土料理においても上記と同じ画面遷移を行う。
+次にトップ画面より、高知の観光地から居酒屋を検索できる画面（図１２）を表示する。まず高知の観光地ベスト５として、観光地を5箇所掲載する。またタブ画面内において、高知県の代表的な観光地の説明を掲載する。タブ画面外の高知県のお土産ベスト３および、高知県のイベント情報は、お酒から検索できる画面と同様で変化しない。
+図 ~\ref{fig:12}
+図１２の画面より、高知の観光地ベスト５欄内の「詳細」をクリックすることで、全ての観光地が表示される画面（図１３）に遷移する。(ベスト５の観光地はランク（または色分け）をつけ、それ以外は番号をつけない)
+図 ~\ref{fig:13}
+図１３の画面より、表示された観光地名をクリックすることで、選択した観光地の詳細情報が表示される（ここでは例として「桂浜」を選択）。またこの画面から、この観光地周辺の居酒屋を検索することができる。
+図 ~\ref{fig:14}
+図１４の画面より、「この観光地付近の居酒屋を検索」をクリックすることで、選択した観光地周辺の居酒屋を全て表示する画面（図１５）に遷移する。その後、気になる居酒屋を選択しクリックすることで、その店舗の詳細情報を表示する画面（図５）へ遷移する。
+図 ~\ref{fig:15}
+次にトップ画面より、店舗の特徴から居酒屋を検索できる画面（図１６）を表示する。具体的にはその店舗の所在地や平均予算から居酒屋を検索することができる。タブ画面外の高知県のお土産ベスト３および、高知県のイベント情報は、お酒から検索できる画面と同様で変化しない。
+図 ~\ref{fig:16}
+図１６の画面の市町村検索から、例として「高知市」をクリックすることで、高知市に所在する居酒屋一覧表を表示する画面（図１７）に遷移する。その後、気になる居酒屋を選択しクリックすることで、その店舗の詳細情報を表示する画面（図５）へ遷移する。
+図 ~\ref{fig:17}
+図１６の画面の平均予算検索から、例として「３０００円以下」をクリックすることで、平均予算が３０００円以下である居酒屋一覧表を表示する画面（図１８）に遷移する。その後、気になる居酒屋を選択しクリックすることで、その店舗の詳細情報を表示する画面（図５）へ遷移する。
+図 ~\ref{fig:18}
+上記で説明した一般ユーザの画面遷移を全体的にまとめたものを以下に示す。
+図 ~\ref{fig:19}
+図 ~\ref{fig:20}
+図 ~\ref{fig:21}
+１. ユーザ登録画面
+　ユーザ登録フォーム画面より、高知県居酒屋マップシステムを使用するために必要なE-mailアドレス、アカウント名、パスワードを入力する画面（図２２）を表示する。パスワードは間違いがないか確認するため、２回入力する欄がある。全てを入力し終えた後「登録」をクリックすることで、登録完了画面（図２３）に遷移する。
+図 ~\ref{fig:22}
+図 ~\ref{fig:23}
+図２３の画面より「トップ画面へ」をクリックすることで、トップ画面（図１）に遷移する。
+２. 店舗側の画面遷移
+　始めに店舗側は、店舗側の新規登録フォーム画面（図２４）により店舗の登録を申請する。E-mailアドレスを入力した後、「登録申請」をクリックすることで、店舗登録の申請が完了したことを知らせる画面（図２５）に遷移する。
+図 ~\ref{fig:24}
+図 ~\ref{fig:25}
+ログイン画面（図２６）では、店舗が情報を編集する画面にログインするための画面を表示する。登録している店舗はE-mailアドレスとパスワードを入力した後「ログイン」をクリックすることで、店舗の情報を編集する画面（図２７）に遷移する。ログインに失敗した場合、「（E-mailアドレス、またはパスワードが間違っています）」の文章が付け加わったログイン画面が表示される。登録したい店舗は「こちら」をクリックすることで、店舗側の登録フォーム画面（図２４）へ遷移する。
+図 ~\ref{fig:26}
+図 ~\ref{fig:27}
+図２７では、店舗側に編集してもらう情報の記述欄とチェック欄を表示する。全ての項目欄を記述後「編集確認」をクリックすることで、編集した内容を確認するプレビュー画面（図２８）に遷移する。
+図 ~\ref{fig:28}
+図２８では、図２７で編集した情報を再表示する。編集した情報に間違いがないことを確認したのち「編集完了」をクリックすることで、編集を完了したことを伝える画面（図２９）へ遷移する。
+図 ~\ref{fig:29}
+図２９は、店舗情報の編集を完了したことを知らせる画面を表示する。「編集画面」をクリックすることで、再び店舗の編集画面（図２７）へ遷移する。
+上記で説明した店舗側の画面遷移を全体にまとめたものを以下に示す。
+図 ~\ref{fig:30}
+
+
+\section{結果}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn.eps}
+    \caption {心理実験結果のグラフ}
+    \label {fig:1}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn2.eps}
+    \caption {心理実験の刺激絵を変えた結果の画像}
+    \label {fig:2}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{starA.eps}
+　　    \caption {刺激絵1の画像}
+    \label {fig:3}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{starC.eps}
+    \caption {刺激絵2の画像}
+    \label {fig:4}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{sen.eps}
+    \caption {2班分のデータをまとめたグラフ}
+    \label {fig:5}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{4kinds.eps}
+    \caption {2班分の平均値，標準誤差と回帰直線の傾きをまとめた表}
+    \label {fig:6}
+    \end{center}
+\end {figure}
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{official.eps}
+    \caption {回帰直線の傾きの平均値，不偏分散，標準偏差，t値，有意確率，t検定の値をまとめた表}
+    \label {fig:7}
+    \end{center}
+\end {figure}
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn.eps}
+    \caption {心理実験結果のグラフ}
+    \label {fig:8}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn2.eps}
+    \caption {心理実験の刺激絵を変えた結果の画像}
+    \label {fig:9}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{starA.eps}
+　　    \caption {刺激絵1の画像}
+    \label {fig:10}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{starC.eps}
+    \caption {刺激絵2の画像}
+    \label {fig:11}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{sen.eps}
+    \caption {2班分のデータをまとめたグラフ}
+    \label {fig:12}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{4kinds.eps}
+    \caption {2班分の平均値，標準誤差と回帰直線の傾きをまとめた表}
+    \label {fig:13}
+    \end{center}
+\end {figure}
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{official.eps}
+    \caption {回帰直線の傾きの平均値，不偏分散，標準偏差，t値，有意確率，t検定の値をまとめた表}
+    \label {fig:14}
+    \end{center}
+\end {figure}
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn.eps}
+    \caption {心理実験結果のグラフ}
+    \label {fig:15}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn2.eps}
+    \caption {心理実験の刺激絵を変えた結果の画像}
+    \label {fig:16}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{starA.eps}
+　　    \caption {刺激絵1の画像}
+    \label {fig:17}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{starC.eps}
+    \caption {刺激絵2の画像}
+    \label {fig:18}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{sen.eps}
+    \caption {2班分のデータをまとめたグラフ}
+    \label {fig:19}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{4kinds.eps}
+    \caption {2班分の平均値，標準誤差と回帰直線の傾きをまとめた表}
+    \label {fig:20}
+    \end{center}
+\end {figure}
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{official.eps}
+    \caption {回帰直線の傾きの平均値，不偏分散，標準偏差，t値，有意確率，t検定の値をまとめた表}
+    \label {fig:21}
+    \end{center}
+\end {figure}
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn.eps}
+    \caption {心理実験結果のグラフ}
+    \label {fig:22}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn2.eps}
+    \caption {心理実験の刺激絵を変えた結果の画像}
+    \label {fig:23}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{starA.eps}
+　　    \caption {刺激絵1の画像}
+    \label {fig:24}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{starC.eps}
+    \caption {刺激絵2の画像}
+    \label {fig:25}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{sen.eps}
+    \caption {2班分のデータをまとめたグラフ}
+    \label {fig:26}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{4kinds.eps}
+    \caption {2班分の平均値，標準誤差と回帰直線の傾きをまとめた表}
+    \label {fig:27}
+    \end{center}
+\end {figure}
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{official.eps}
+    \caption {回帰直線の傾きの平均値，不偏分散，標準偏差，t値，有意確率，t検定の値をまとめた表}
+    \label {fig:28}
+    \end{center}
+\end {figure}
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn.eps}
+    \caption {心理実験結果のグラフ}
+    \label {fig:29}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[H]
+    \begin{center}
+    \includegraphics [height=10cm, width=15cm]{zibunn2.eps}
+    \caption {心理実験の刺激絵を変えた結果の画像}
+    \label {fig:30}
+    \end{center}
+\end {figure}
+
+
+
+
+
+
+\end{document}
+
