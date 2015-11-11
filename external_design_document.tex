@@ -125,6 +125,16 @@ resort\_details & 観光地の詳細 & 観光地と詳細を関連付ける情�
   \end{center}
 \end{figure}
 
+図\ref{server}のようにサーバを多重化することでもし、片方のサーバが落ちたとしてももう1つのサーバがあるのででネットワークが切れることなくなります。さらにデータベースのバックアップを取ることでデータの損失を防ぎます。
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{server.eps}
+    \captin{サーバの中について}
+    \label{server}
+  \end{center}
+\end{figure}
+
+
 \section{セキュリティ対策}
 \subsection{不正アクセス対策}
 ファイアウォールの導入により、不正アクセスが行われることを防ぎます。
