@@ -150,6 +150,16 @@ desh\_ingredients & 料理の食材 & 料理と食材を関連付ける情報\\\
   \end{center}
 \end{figure}
 
+図\ref{server}のようにサーバを多重化することで片方のサーバに障害が発生した場合でも、もう片方のサーバでサービスを運用することが可能です。さらにデータベースのバックアップを行うことでデータの損失を防ぎます。
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{server.eps}
+    \caption{サーバの中について}
+    \label{server}
+  \end{center}
+\end{figure}
+
+
 \section{セキュリティ対策}
 \subsection{不正アクセス対策}
 ファイアウォールの導入により、不正アクセスが行われることを防ぎます。
