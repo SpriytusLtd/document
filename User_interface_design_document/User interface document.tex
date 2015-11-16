@@ -1,0 +1,955 @@
+\documentclass[a4j,titlepage]{jarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{url}
+
+
+\title{居酒屋検索システム\\
+ユーザインターフェース設計書\\
+第1版}
+\author{株式会社Spirytus}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+\section{一般ユーザの画面遷移}
+
+
+
+まずトップ画面より、お酒の種類、味、アルコール度数から居酒屋を検索できる画面（図~\ref{fig:1}）を表示する。
+
+
+
+またタブ画面内において、高知県の代表的なお酒の説明を掲載する。
+
+
+
+タブ画面外では高知県のお土産ベスト３を紹介し、各お土産の写真や説明を適宜記載する。
+
+
+
+また高知県のイベント情報欄を作成し、月ごと（もしくは年間表）で高知県のイベント情報を記載する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=10cm, width=8cm]{1.eps}
+    \caption {お酒から居酒屋を検索する画面}
+    \label {fig:1}
+    \end{center}
+\end {figure}
+
+
+図~\ref{fig:1}の画面より「お酒の種類」をクリックすることで、全てのお酒の種類が表示される画面（図~\ref{fig:2}）に遷移する。
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{2.eps}
+    \caption {お酒の種類を表示した画面}
+    \label {fig:2}
+    \end{center}
+\end {figure}
+
+
+図~\ref{fig:2}の画面よりお酒の種類（ビールやカクテル等）をクリックすることで、選択した種類に当てはまる酒名を表示する画面（図~\ref{fig:3}）に遷移する。（ここでは例として「焼酎」を選択）
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{3.eps}
+      \caption {選択した種類に当てはまる酒名を表示した画面}
+    \label {fig:3}
+    \end{center}
+\end {figure}
+図~\ref{fig:3}の画面より酒名をクリックすることで、選択したお酒の詳細情報およびそのお酒を扱っている店舗の一覧表が表示される画面（図~\ref{fig:4}）に遷移する。（ここでは例として「ダバダ火振」を選択）
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{4.eps}
+    \caption {お酒の詳細情報およびそのお酒を扱っている店舗の一覧が表示される画面}
+    \label {fig:4}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:4}の画面より店舗名をクリックすることで、選択した店舗の詳細情報が表示される画面（図~\ref{fig:5}）に遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{5.eps}
+    \caption {店舗の詳細情報が表示される画面}
+    \label {fig:5}
+    \end{center}
+\end {figure}
+
+図~\ref{fig:1}の画面より「お酒の味」をクリックすることで、全てのお酒の味が表示される画面（図~\ref{fig:6}）に遷移する。
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{6.eps}
+    \caption {お酒の味が表示される画面}
+    \label {fig:6}
+    \end{center}
+\end {figure}
+図~\ref{fig:6}の画面よりお酒の味（甘いや辛い等）をクリックすることで、選択した味に当てはまる酒名を表示する画面（図~\ref{fig:7}）に遷移する（ここでは例として「しぶい」を選択）。
+
+
+
+その後酒名を選択することで、選択したお酒の詳細情報画面（図~\ref{fig:4}）に遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{7.eps}
+    \caption {選択したお酒の味に当てはまる酒名を表示する画面}
+    \label {fig:7}
+    \end{center}
+\end {figure}
+
+
+
+次にトップ画面より、高知の食材（魚、肉、野菜）、郷土料理から居酒屋を検索できる画面（図~\ref{fig:8}）を表示する。
+
+
+
+またタブ画面内において、高知県の代表的な食材の説明を掲載する。
+
+
+
+タブ画面外の高知県のお土産ベスト３および、高知県のイベント情報は、お酒から検索できる画面と同様で変化しない。
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=12cm, width=9cm]{8.eps}
+    \caption {高知の食材および郷土料理から居酒屋を検索する画面}
+    \label {fig:8}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:8}の画面より、例として「高知の野菜」をクリックすることで、有名な（出荷量が多い、知名度の高い）高知の野菜が表示される画面（図~\ref{fig:9}）に遷移する。
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{9.eps}
+    \caption {高知県の野菜を表示する画面}
+    \label {fig:9}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:9}の画面より、表示された野菜名をクリックすることで、選択した野菜の説明およびその食材がどのような料理に扱われているのかを示した画面（図~\ref{fig:10}）が表示される（ここでは例として「ゆず」を選択）。
+
+
+
+またこの画面から、この野菜を扱った料理を提供している居酒屋を検索することができる。
+
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{10.eps}
+　　    \caption {選択した野菜の説明画面}
+    \label {fig:10}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:10}の画面より、「この野菜を扱っている居酒屋を検索」をクリックすることで、選択した野菜を扱っている居酒屋を全て表示する画面（図~\ref{fig:11}）に遷移する。
+
+
+
+その後、気になる居酒屋を選択しクリックすることで、その店舗の詳細情報を表示する画面（図~\ref{fig:5}）へ遷移する。
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{11.eps}
+    \caption {選択した野菜を扱っている店舗一覧を表示する画面}
+    \label {fig:11}
+    \end{center}
+\end {figure}
+
+※高知の魚、肉、郷土料理においても上記と同じ画面遷移を行う。
+次にトップ画面より、高知の観光地から居酒屋を検索できる画面（図~\ref{fig:12}）を表示する。
+
+
+
+まず高知の観光地ベスト５として、観光地を5箇所掲載する。
+
+
+
+またタブ画面内において、高知県の代表的な観光地の説明を掲載する。
+
+
+
+タブ画面外の高知県のお土産ベスト３および、高知県のイベント情報は、お酒から検索できる画面と同様で変化しない。
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=12cm, width=9cm]{12.eps}
+    \caption {観光地から居酒屋を検索する画面}
+    \label {fig:12}
+    \end{center}
+\end {figure}
+
+図~\ref{fig:12}の画面より、高知の観光地ベスト５欄内の「詳細」をクリックすることで、全ての観光地が表示される画面（図~\ref{fig:13}）に遷移する。
+
+(ベスト５の観光地はランク（または色分け）をつけ、それ以外は番号をつけない)
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{13.eps}
+    \caption {全ての観光地を表示する画面}
+    \label {fig:13}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:13}の画面より、表示された観光地名をクリックすることで、選択した観光地の詳細情報が表示される（ここでは例として「桂浜」を選択）。
+
+
+
+またこの画面から、この観光地周辺の居酒屋を検索することができる。
+
+
+
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{14.eps}
+    \caption {選択した観光地の説明画面}
+    \label {fig:14}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:14}の画面より、「この観光地付近の居酒屋を検索」をクリックすることで、選択した観光地周辺の居酒屋を全て表示する画面（図~\ref{fig:15}）に遷移する。
+
+
+
+その後、気になる居酒屋を選択しクリックすることで、その店舗の詳細情報を表示する画面（図~\ref{fig:5}）へ遷移する。
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{15.eps}
+    \caption {選択した観光地周辺の居酒屋一覧表を表示する画面}
+    \label {fig:15}
+    \end{center}
+\end {figure}
+
+
+
+次にトップ画面より、店舗の特徴から居酒屋を検索できる画面（図~\ref{fig:16}）を表示する。
+
+
+
+具体的にはその店舗の所在地や平均予算から居酒屋を検索することができる。
+
+
+
+タブ画面外の高知県のお土産ベスト３および、高知県のイベント情報は、お酒から検索できる画面と同様で変化しない。
+\clearpage
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=12cm, width=8cm]{16.eps}
+    \caption {店舗の特徴から}
+    \label {fig:16}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:16}の画面の市町村検索から、例として「高知市」をクリックすることで、高知市に所在する居酒屋一覧表を表示する画面（図~\ref{fig:17}）に遷移する。
+
+
+
+その後、気になる居酒屋を選択しクリックすることで、その店舗の詳細情報を表示する画面（図~\ref{fig:5}）へ遷移する。
+\clearpage
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{17.eps}
+　　    \caption {選択した市町村に所在する居酒屋の一覧表を表示する画面}
+    \label {fig:17}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:16}の画面の平均予算検索から、例として「３０００円以下」をクリックすることで、平均予算が３０００円以下である居酒屋一覧表を表示する画面（図~\ref{fig:18}）に遷移する。
+
+
+
+その後、気になる居酒屋を選択しクリックすることで、その店舗の詳細情報を表示する画面（図~\ref{fig:5}）へ遷移する。
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=9cm]{18.eps}
+    \caption {選択した平均予算に当てはまる居酒屋の一覧表を表示する画面}
+    \label {fig:18}
+    \end{center}
+\end {figure}
+
+
+\clearpage
+上記で説明した一般ユーザの画面遷移を全体的にまとめたものを以下に示す。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=8cm, width=8cm]{19.eps}
+    \caption {お酒から居酒屋を検索する画面遷移の全体図}
+    \label {fig:19}
+    \end{center}
+\end {figure}
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=8cm, width=10cm]{20.eps}
+    \caption {高知の食材から居酒屋を検索する画面遷移の全体図}
+    \label {fig:20}
+    \end{center}
+\end {figure}
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=10cm, width=7cm]{21.eps}
+    \caption {高知の観光地から居酒屋を検索する画面遷移の全体図}
+    \label {fig:21}
+    \end{center}
+\end {figure}
+
+\clearpage
+
+\section{ユーザ登録画面}
+　ユーザ登録フォーム画面より、高知県居酒屋マップシステムを使用するために必要なE-mailアドレス、アカウント名、パスワードを入力する画面（図~\ref{fig:22}）を表示する。
+
+
+
+パスワードは間違いがないか確認するため、２回入力する欄がある。
+
+
+
+全てを入力し終えた後「登録」をクリックすることで、登録完了画面（図~\ref{fig:23}）に遷移する。
+
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{22.eps}
+    \caption {ユーザ登録フォーム}
+    \label {fig:22}
+    \end{center}
+\end {figure}
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{23.eps}
+    \caption {ユーザ登録完了画面}
+    \label {fig:23}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:23}の画面より「トップ画面へ」をクリックすることで、トップ画面（図~\ref{fig:1}）に遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=5cm]{24.eps}
+    \caption {ユーザ登録の画面遷移}
+    \label {fig:24}
+    \end{center}
+\end {figure}
+\clearpage
+\section{店舗側の画面遷移}
+
+
+　始めに店舗側は、店舗側の新規登録フォーム画面（図~\ref{fig:2}）により店舗の登録を申請する。
+
+
+
+E-mailアドレスを入力した後、「登録申請」をクリックすることで、店舗登録の申請が完了したことを知らせる画面（図~\ref{fig:26}）に遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=8cm, width=10cm]{25.eps}
+　　    \caption {店舗側登録フォーム}
+    \label {fig:25}
+    \end{center}
+\end {figure}
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=8cm, width=10cm]{26.eps}
+    \caption {店舗登録申請完了画面}
+    \label {fig:26}
+    \end{center}
+\end {figure}
+
+
+\clearpage
+ログイン画面（図~\ref{fig:27}）では、店舗が情報を編集する画面にログインするための画面を表示する。
+
+
+
+登録している店舗はE-mailアドレスとパスワードを入力した後「ログイン」をクリックすることで、店舗の情報を編集する画面（図~\ref{fig:2}）に遷移する。
+
+
+
+ログインに失敗した場合、「（E-mailアドレス、またはパスワードが間違っています）」の文章が付け加わったログイン画面が表示される。
+
+
+
+登録したい店舗は「こちら」をクリックすることで、店舗側の登録フォーム画面（図~\ref{fig:2}）へ遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=8cm, width=10cm]{27.eps}
+    \caption {店舗側のログイン画面}
+    \label {fig:27}
+    \end{center}
+\end {figure}
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=12cm, width=9cm]{28.eps}
+    \caption {店舗の情報編集画面}
+    \label {fig:28}
+    \end{center}
+\end {figure}
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=10cm, width=10cm]{29.eps}
+    \caption {店舗登録画面遷移図}
+    \label {fig:29}
+    \end{center}
+\end {figure}
+\clearpage
+図~\ref{fig:28}では、店舗側に編集してもらう情報の記述欄とチェック欄を表示する。
+
+
+
+全ての項目欄を記述後「編集確認」をクリックすることで、編集した内容を確認するプレビュー画面（図~\ref{fig:30}）に遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=10cm, width=10cm]{30.eps}
+    \caption {プレビュー画面}
+    \label {fig:30}
+    \end{center}
+\end {figure}
+
+
+\clearpage
+図~\ref{fig:30}では、図~\ref{fig:28}で編集した情報を再表示する。
+
+
+
+編集した情報に間違いがないことを確認したのち「編集完了」をクリックすることで、編集を完了したことを伝える画面（図~\ref{fig:31}）へ遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=8cm, width=10cm]{31.eps}
+    \caption {編集完了画面}
+    \label {fig:31}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:31}は、店舗情報の編集を完了したことを知らせる画面を表示する。
+
+
+
+「編集画面」をクリックすることで、再び店舗の編集画面（図~\ref{fig:28}）へ遷移する。
+\clearpage
+
+上記で説明した店舗側の画面遷移を全体にまとめたものを以下に示す。
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=8cm, width=10cm]{32.eps}
+    \caption {店舗側の情報遷移図}
+    \label {fig:32}
+    \end{center}
+\end {figure}
+
+
+
+\section{ユーザがレビューを書く場合}
+まずユーザはユーザ登録フォーム画面より、自身のメールアドレスおよびパスワードを入力し、マイページにログインする。
+
+
+
+お酒のレビューを書きたい場合は、ログインした状態でレビューを書きたいお酒の情報が示された画面（図~\ref{fig:4}）まで遷移し、「レビューを書く」をクリックする。
+
+
+
+「レビューを書く」をクリックすることで、選択したお酒のレビュー編集画面（図~\ref{fig:33}）に遷移するため、そこで十字のチャート図による評価とコメント入力でお酒のレビューを行う。
+
+
+
+レビューの記入が完了したら送信ボタンを押してお酒のレビューは完了となる。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{33.eps}
+    \caption {お酒のレビュー編集画面}
+    \label {fig:33}
+    \end{center}
+\end {figure}
+
+\clearpage
+
+一方レビューを見る際は、お酒の情報が示された画面（図~\ref{fig:4}）において、「レビューを見る」をクリックする。
+
+
+
+「レビューを見る」をクリックすることで、選択したお酒のレビュー画面（図~\ref{fig:34}）に遷移するため、そこで自身および他ユーザのレビューを確認できる。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{34.eps}
+    \caption {お酒のレビュー画面}
+    \label {fig:34}
+    \end{center}
+\end {figure}
+
+
+
+※店舗のレビューを書く際も、お酒のレビューと同様の流れでレビューを書く。
+ただし店舗のレビューは、十字のチャート図による評価ではなく、星５つでの評価に変わる（図~\ref{fig:35}）。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{35.eps}
+    \caption {店舗のレビュー編集画面}
+    \label {fig:35}
+    \end{center}
+\end {figure}
+
+\clearpage
+
+また店舗のレビューを見る際もお酒のレビューと同様である（図~\ref{fig:36}）。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{36.eps}
+    \caption {店舗のレビュー画面}
+    \label {fig:36}
+    \end{center}
+\end {figure}
+
+
+
+
+トップ画面よりタブの店舗を選択した場合、市町村、平均予算から店舗を検索する画面（図~\ref{fig:37}）を表示する。
+
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=10cm, width=7cm]{37.eps}
+    \caption {市町村・予算から検索する画面}
+    \label {fig:37}
+    \end{center}
+\end {figure}
+
+
+\clearpage
+図~\ref{fig:37}の画面より、「市町村検索」の欄にある市町村名をクリックすることで、その市町村にある全ての店舗名が表示される画面（図~\ref{fig:38}）に遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{38.eps}
+    \caption {選択した市町村にある店舗名を表示した画面}
+    \label {fig:38}
+    \end{center}
+\end {figure}
+
+
+
+また、「平均予算から検索」の欄にある予算にチェックを入れた後、検索ボタンをクリックすることで、チェックを入れた予算に見合った全ての店舗名一覧が表示される画面（図~\ref{fig:39}）に遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{39.eps}
+    \caption {平均予算に当てはまる店舗名を表示した画面}
+    \label {fig:39}
+    \end{center}
+\end {figure}
+
+
+図~\ref{fig:38}の画像より、店舗名をクリックすることで、選択した店舗の詳細情報が表示される画面（図~\ref{fig:5}）に遷移する。
+
+
+
+
+
+
+
+図~\ref{fig:39}の画像より、店舗名をクリックすることで選択した店舗の詳細情報が表示される画面（図~\ref{fig:5}）に遷移する。
+
+\clearpage
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{40.eps}
+    \caption {ユーザログイン画面}
+    \label {fig:40}
+    \end{center}
+\end {figure}
+
+
+
+ユーザログイン画面（図~\ref{fig:40}）では、すでに登録したユーザがログインするための画面を表示する。
+
+
+
+E-mailアドレスとパスワードを入力後、ログインボタンをクリックすることでトップ画面（図~\ref{fig:1}）へ遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{41.eps}
+    \caption {ユーザ登録フォーム画面}
+    \label {fig:41}
+    \end{center}
+\end {figure}
+
+
+
+未登録のユーザは、規登録は「こちら」をクリックすることで、ユーザ登録フォーム（図~\ref{fig:41}）へ遷移する。
+
+\clearpage
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{42.eps}
+    \caption {パスワード再設定画面}
+    \label {fig:42}
+    \end{center}
+\end {figure}
+
+
+
+
+パスワードを忘れたユーザは、パスワードを忘れた方は「こちら」をクリックすることで、パスワード再設定画面（図~\ref{fig:42}）へ遷移する。
+
+
+
+
+
+図~\ref{fig:41}より、高知県居酒屋マップシステムを使用するために必要なE-mailアドレス、アカウント名、パスワードを入力する画面を表示する。
+
+
+
+パスワードは間違いがないか確認するため、2回入力する欄がある。
+
+\clearpage
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{43.eps}
+    \caption {ユーザ登録完了画面}
+    \label {fig:43}
+    \end{center}
+\end {figure}
+
+
+
+全てを入力し終えた後「登録」をクリックすることで、登録完了画面（図~\ref{fig:43}）に遷移する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{44.eps}
+    \caption {パスワード再設定完了画面}
+    \label {fig:44}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:42}の画像よりE-mailアドレスを入力したのち「送信」をクリックすることで、　パスワード再設定のメールが送信されたことを知らせる画面（図~\ref{fig:44}）に遷移する。
+
+
+
+図~\ref{fig:43}の画面より「トップ画面へ」をクリックすることで、トップ画面（図~\ref{fig:1}）に遷移する。
+
+
+
+\section{店舗側の画面遷移}
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{45.eps}
+    \caption {店舗側登録フォーム}
+    \label {fig:45}
+    \end{center}
+\end {figure}
+
+
+
+始めに店舗側は、店舗側の新規登録フォーム画面（図~\ref{fig:45}）により店舗の登録を申請する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{46.eps}
+    \caption {店舗登録申請完了画面}
+    \label {fig:46}
+    \end{center}
+\end {figure}
+
+
+
+E-mailアドレスを入力した後、「登録申請」をクリックすることで、店舗登録の申請が完了したことを知らせる画面（図~\ref{fig:46}）に遷移する。
+
+
+\clearpage
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{47.eps}
+    \caption {店舗側のログイン画面}
+    \label {fig:47}
+    \end{center}
+\end {figure}
+
+
+
+
+店舗ログイン画面（図~\ref{fig:47}）では、店舗が情報を編集する画面にログインするための画面を表示する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=10cm, width=7cm]{48.eps}
+    \caption {店舗の情報編集画面}
+    \label {fig:48}
+    \end{center}
+\end {figure}
+
+
+
+登録している店舗はE-mailアドレスとパスワードを入力した後「ログイン」をクリックすることで、店舗の情報を編集する画面（図~\ref{fig:48}）に遷移する。
+
+
+
+ログインに失敗した場合、「（E-mailアドレス、またはパスワードが間違っています）」の文章が付け加わったログイン画面が表示される。
+
+
+
+登録したい店舗は新規登録の方は「こちら」をクリックすることで、店舗側の登録フォーム画面（図~\ref{fig:45}）へ遷移する。
+
+
+
+また、パスワードを忘れてしまった場合、パスワードを忘れた方は「こちら」をクリックすることで、パスワード再設定画面（図~\ref{fig:42}）へ遷移する。
+
+
+\clearpage
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{49.eps}
+    \caption {プレビュー画面}
+    \label {fig:49}
+    \end{center}
+\end {figure}
+
+
+
+
+
+図~\ref{fig:49}では、店舗側に編集してもらう情報の記述欄とチェック欄を表示する。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{50.eps}
+    \caption {編集完了画面}
+    \label {fig:50}
+    \end{center}
+\end {figure}
+
+
+
+全ての項目欄を記述後「編集確認」をクリックすることで、編集した内容を確認するプレビュー画面（図~\ref{fig:50}）に遷移する。
+
+
+
+
+
+
+
+図~\ref{fig:49}では、図~\ref{fig:48}で編集した情報を再表示する。
+
+
+
+編集した情報に間違いがないことを確認したのち「編集完了」をクリックすることで、編集を完了したことを伝える画面（図~\ref{fig:50}）へ遷移する。
+
+
+
+
+
+
+
+図~\ref{fig:50}は、店舗情報の編集を完了したことを知らせる画面を表示する。
+
+
+
+「編集画面」をクリックすることで、再び店舗の編集画面（図~\ref{fig:48}）へ遷移する。
+
+\clearpage
+
+\section{ユーザのマイページ}
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=10cm, width=7cm]{51.eps}
+    \caption {ユーザのマイページ画面}
+    \label {fig:51}
+    \end{center}
+\end {figure}
+
+
+
+
+　トップ画面右上のマイページをクリックすることで、自分のプロフィールやお気に入り登録をしたお酒と店舗の一覧、自分が書いたレビューなどが表示される画面（図~\ref{fig:51}）に遷移する。
+
+
+
+お気に入り欄とレビュー欄の横にあるチェックボックスにチェックを入れた後、「削除」のボタンをクリックすることで、チェックを入れたお気に入り、レビューを削除することが出来る。
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{52.eps}
+    \caption {プロフィール編集画面}
+    \label {fig:52}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:51}より、画面右上の「プロフィール編集」をクリックすることで、プロフィールの編集画面（図~\ref{fig:52}）に遷移する。
+
+
+
+また、画面左下の「トップ画面へ戻る」をクリックすることでトップ画面（図~\ref{fig:1}）へ遷移する。
+
+\clearpage
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{53.eps}
+    \caption {退会申請画面}
+    \label {fig:53}
+    \end{center}
+\end {figure}
+
+
+
+画面右下の退会をするには「こちら」をクリックすることで、退会申請画面（図~\ref{fig:53}）へ遷移する。
+
+
+
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{54.eps}
+    \caption {プロフィール編集完了画面}
+    \label {fig:54}
+    \end{center}
+\end {figure}
+
+
+
+図~\ref{fig:52}ではプロフィール情報を編集した後、「編集完了」をクリックすることで、プロフィールの編集が完了したことを伝える画面（図~\ref{fig:54}）へ遷移する。
+
+
+\clearpage
+
+\begin {figure}[!htbp]
+    \begin{center}
+    \includegraphics [height=7cm, width=10cm]{55.eps}
+    \caption {退会完了画面}
+    \label {fig:55}
+    \end{center}
+\end {figure}
+
+
+
+
+図~\ref{fig:53}では「OK」をクリックすることで、退会を完了したことを伝える画面（図~\ref{fig:55}）へ遷移する。
+
+
+
+図~\ref{fig:54}では「マイページへ戻る」をクリックすることで、マイページ画面（図~\ref{fig:51}）へ遷移する。
+\end{document}
