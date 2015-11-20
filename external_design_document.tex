@@ -304,6 +304,13 @@
 また、コメント入力欄を設け、お酒に対する味の感想やコメントを書くことができます。
 さらに自身で書いたレビューや他人の書いたレビューを閲覧することができます（図\ref{fig:16}）。
 
+お酒レビューの登録項目
+\begin{enumerate}
+  \item [入力]　ユーザID、パラメータ
+  \item [出力]　入力に基づいてお酒のレビュー情報をデータベースに登録
+  \item [処理]提供されているユーザのIDやお酒のパラメータ(評価)についての情報を入力します。入力していない項目がない場合はデータベースに登録されます。
+\end{enumerate}
+
 \begin {figure}[htbp]
     \begin{center}
     \includegraphics [height=7cm, width=7cm]{extrnal_design_document_image/14.eps}
@@ -336,6 +343,14 @@
 さらに自身で書いたレビューや他人の書いたレビューを閲覧することができます。
 店舗のレビュー編集および閲覧画面はお酒レビュー画面（図\ref{fig:15}、図\ref{fig:16}）と同様です。
 
+
+店舗レビューの登録項目
+\begin{enumerate}
+  \item [入力]　ユーザID、パラメータ
+  \item [出力]　入力に基づいて店舗のレビュー情報をデータベースに登録
+  \item [処理]提供されているユーザのIDや店舗のパラメータ(評価)についての情報を入力します。入力していない項目がない場合はデータベースに登録されます。
+\end{enumerate}
+
 \begin {figure}[htbp]
     \begin{center}
     \includegraphics [height=7cm, width=7cm]{extrnal_design_document_image/17.eps}
@@ -363,6 +378,14 @@
 \item 店舗のHPやブログのURL
 \item メニューと価格(お勧めだけでも)
 \item 店のアピール
+\end{enumerate}
+
+
+店舗情報の登録項目
+\begin{enumerate}
+  \item [入力]　店舗情報
+  \item [出力]　店舗情報を入力し、情報の確認が出来ればデータベースに登録
+  \item [処理]　提供されている店舗情報を入力します。情報の確認が出来れば、入力された店舗情報がデータベースに登録されます。
 \end{enumerate}
 
 \begin{figure}[htbp]
