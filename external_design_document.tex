@@ -412,29 +412,10 @@ dish\_ingredients & 料理の食材 & 料理と食材を関連付ける情報\\\
 \end{table}
 
 \section{ネットワーク設計}
-本システムは図\ref{net}のようにHTTPを用いてクライアントとサーバのやり取りを行います。
-\begin{enumerate}
-  \item クライアント側がサーバ側に「リクエスト」を送信します
-  \item サーバ側でリクエストの解析・処理してリクエストの答えを作ります
-  \item サーバ側がクライアント側に「レスポンス」を返します
-\end{enumerate}
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width=0.8\linewidth]{net.eps}
-    \caption{クライアントとサーバのやり取り}
-    \label{net}
-  \end{center}
-\end{figure}
-
-図\ref{server}のようにサーバを多重化することで片方のサーバに障害が発生した場合でも、もう片方のサーバでサービスを運用することが可能です。さらにデータベースのバックアップを行うことでデータの損失を防ぎます。
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width=0.8\linewidth]{server.eps}
-    \caption{サーバの中について}
-    \label{server}
-  \end{center}
-\end{figure}
-
+本システムはHTTPSを用いてクライアントとサーバのやり取りを行います。
+HTTPSにすることによって、データのやり取りの内容を外から見る事ができないようになります。
+また、サーバを多重化することで片方のサーバに障害が発生した場合でも、もう片方のサーバでサービスを運用することが可能です。
+さらに、データベースのバックアップを行うことでデータの損失を防ぎます。
 
 \section{セキュリティ対策}
 \subsection{不正アクセス対策}
