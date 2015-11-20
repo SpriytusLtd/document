@@ -76,6 +76,7 @@
 
 \subsection{新規ユーザ登録機能}
 新規のユーザがアカウントを登録する機能です。
+ユーザには、ユーザ登録フォーム(図\ref{fig:s1})が表示されます。
 
 登録項目
 \begin{enumerate}
@@ -90,16 +91,44 @@
   \item [処理]　登録項目に沿ってアカウントを作成し、データベースに保存します
 \end{enumerate}
 
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics [height=7cm, width=7cm]{extrnal1_design_document_image/s1.eps}
+  \caption{新規ユーザ登録フォーム}
+  \label {fig:s1}
+  \end{center}
+\end{figure}
+
+\newpage
 \subsection{ユーザログイン機能}
 ユーザがマイページにログインする機能です。
+ユーザには、ユーザログイン画面(図\ref{fig:s2})が表示され、ログインに成功した場合はマイページ画面(図\ref{fig:s3})が表示されます。
 
 \begin{enumerate}
   \item [入力]　ユーザネーム、パスワード
-  \item [出力]　マイページ
+  \item [出力]　マイページ画面
   \item [処理]　ユーザネームとパスワードをもとに、データベースからアカウント情報を取り出します
 \end{enumerate}
+
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics [height=7cm, width=7cm]{extrnal1_design_document_image/s2.eps}
+  \caption{ユーザログイン画面}
+  \label {fig:s2}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics [height=8cm, width=6cm]{extrnal1_design_document_image/s3.eps}
+  \caption{マイページ画面}
+  \label {fig:s3}
+  \end{center}
+\end{figure}
+
+\newpage
 \subsection{店舗登録機能}
-店舗側は端末を使用して店舗登録申請フォームにアクセスし、必要情報を入力し申請を行います。
+店舗側は端末を使用して店舗登録申請フォーム(図\ref{fig:s4})にアクセスし、必要情報を入力し申請を行います。
 この申請に対し運営者側で店舗の広告を行うか判断します。
 広告を行うと判断された場合、e-mailアドレス、パスワードをデータベースに登録します。
 このe-mailアドレス、パスワードを使用しログインすることでページ編集画面にアクセスし、店舗情報の編集を行います。
@@ -111,13 +140,34 @@
 \item[処理] 登録ページのURLが記載されたメールを店舗側に送信します。店舗側はURLにアクセスし新規の登録を行い、運営側で登録された情報に対し審査を行います。登録された情報に不備等がなければそのまま登録を行います。不備等がある場合、店舗に対してメールや電話で問い合わせを行います。
 \end{enumerate}
 
-\subsubsection{店側のログイン機能}
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics [height=7cm, width=7cm]{extrnal1_design_document_image/s4.eps}
+  \caption{店舗登録申請フォーム}
+  \label {fig:s4}
+  \end{center}
+\end{figure}
+
+\newpage
+\subsubsection{店舗側のログイン機能}
+店舗側が店舗編集画面にログインする機能です。
+店舗側には、店舗ログイン画面(図\ref{fig:s5})が表示されます。
+
 \begin{enumerate}
 \item[入力] e-mailアドレス、パスワード
 \item[出力] ログイン成功ならば店舗個別ページ
 \item[処理] 入力情報とデータベースを照合しログインの合否を判定します。ログインに成功した場合、店舗情報の編集画面に遷移します。
 \end{enumerate}
 
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics [height=7cm, width=7cm]{extrnal1_design_document_image/s5.eps}
+  \caption{店舗ログイン画面}
+  \label {fig:s5}
+  \end{center}
+\end{figure}
+
+\newpage
 \subsection{お酒のレビュー}
 お酒の詳細情報にお酒のレビュー項目を設けています。
 内容としては、ユーザIDを入力し、その選んだお酒の味を数値でレビューします。
@@ -132,6 +182,10 @@
 \subsection{レビューのパラメータ}
 お酒のテーブル(日本酒、ワイン、ビール等)を増やし、お酒ごとの味(甘さ・辛さ・重さ等)の評価を決めます。
 \subsection{店舗側の店舗情報登録機能}
+店舗情報の登録機能では上記のような店側が店舗の決められている営業時間や全体のメニュー、その他の情報を登録する機能です。
+店舗側には、店舗情報登録画面(図\ref{fig:s6})が表示されます。
+店舗情報入力後、画面左下の「編集確認」をクリックすることで、店舗のプレビュー画面(図\ref{fig:s7})が表示され、画面右上の「編集完了」をクリックすることで編集が完了します。
+
 店舗情報内容
 \begin{enumerate}
 \item 店舗名
@@ -148,7 +202,23 @@
 \item 店のアピール
 \end{enumerate}
 
-店舗情報の登録機能では上記のような店側が店舗の決められている営業時間や全体のメニュー、その他の情報を登録する機能です。
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics [height=9cm, width=6cm]{extrnal1_design_document_image/s6.eps}
+  \caption{店舗情報編集画面}
+  \label {fig:s6}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics [height=7cm, width=7cm]{extrnal1_design_document_image/s7.eps}
+  \caption{店舗のプレビュー画面}
+  \label {fig:s7}
+  \end{center}
+\end{figure}
+
+\newpage
 \section{データ定義}
 本章では、データベースで管理するデータについて定義します。
 データベースのテーブルは、表\ref{tables}に示すテーブル群から構成されます。
