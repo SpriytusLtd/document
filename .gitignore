@@ -1,5 +1,5 @@
 # Created by https://www.gitignore.io/api/latex,tex,vim,emacs
-
+.DS_Store
 *.pdf
 
 ### LaTeX ###
