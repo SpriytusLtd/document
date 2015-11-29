@@ -2,6 +2,7 @@
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{ascmac}
 \usepackage{url}
+\usepackage{multirow}
 
 
 \title{呑兵衛土佐巡\\
@@ -75,35 +76,37 @@
 \label{routing}
 \small
 \begin{center}
-\begin{tabular}{|l|l|l|p{5cm}|}\hline
+\begin{tabular}{|l|l|l|p{4cm}|}\hline
 ページ内容 & ルーティング & HTTPメソッド & 詳細\\\hline\hline
 トップページ & / & GET & \\\hline
 ログイン（ユーザ） & /login\_user & GET & \\\hline
- & & POST & メールアドレスとパスワードを送信します。 \\\hline
+ & & \multirow{2}{*}{POST} & メールアドレスとパスワードを送信します。 \\\hline
 ログイン（店舗） & /login\_store & GET & \\\hline
- & & POST & メールアドレスとパスワードを送信します。 \\\hline
+ & & \multirow{2}{*}{POST} & メールアドレスとパスワードを送信します。 \\\hline
 マイページ（トップ） & /:user\_name & GET & \\\hline
 マイページ（お気に入り） & /:user\_name/favorite & GET & \\\hline
  & & DELETE & 削除対象をパラメータで指定します。 \\\hline
 マイページ（レビュー） & /:user\_name/review & GET & \\\hline
- & & DELETE & 削除対象をパラメータで指定します。 \\\hline
+ & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。 \\\hline
 マイページ（設定） & /:user\_name/config & GET & \\\hline
  & & POST & 設定情報を送信します。 \\\hline
- & & DELETE & 削除対象をパラメータで指定します。 \\\hline
+ & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。 \\\hline
 検索（お酒） & /search/drink?検索条件 & GET & \\\hline
 検索（食材） & /search/food?検索条件 & GET & \\\hline
 検索（観光地等） & /search/resort?検索条件 & GET & \\\hline
 検索（店舗） & /search/store?検索条件 & GET & \\\hline
 検索（語句） & /search?検索語句 & GET & \\\hline
-店舗マイページ（詳細） & /store:store\_name & GET & \\\hline
-店舗マイページ（レビュー） & /store:store\_name & GET & \\\hline
+店舗（詳細） & /store:store\_name & GET & \\\hline
+店舗（レビュー）& /store:store\_name/review & GET & \\\hline
 お酒（詳細） & /detuil:drink\_name & GET & \\\hline
 お酒（レビュー） & /detuil:drink\_name/review & GET & \\\hline
-店舗マイページ（編集） & /edit:store\_name & DELETE & 削除対象をパラメータで指定します。\\\hline
-店舗（レビュー） & /edit:store\_name/review & GET & \\\hline
+\multirow{2}{*}{店舗マイページ（編集）} & \multirow{2}{*}{/edit:store\_name} & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。\\\hline
+店舗マイページ（レビュー） & /edit:store\_name/review & GET & \\\hline
+店舗マイページ（編集） & /edit:store\_name/config & GET & \\\hline
+ & & POST & 設定情報を送信します。 \\\hline
+ & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。\\\hline
 店舗登録申請 & /request & POST & 登録申請情報を送信します。\\\hline
 店舗登録画面 & /registration\_store & POST & 登録情報を送信します。\\\hline
-店舗 & /edit:store\_name/config & DELETE & 削除対象をパラメータで指定します。\\\hline
 店舗登録解除 & /release & POST & 登録解除情報を送信します。\\\hline
 ユーザ（登録） & /registration\_user & GET & \\\hline
 \end{tabular}
