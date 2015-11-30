@@ -2,6 +2,7 @@
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{ascmac}
 \usepackage{url}
+\usepackage{multirow}
 
 
 \title{呑兵衛土佐巡\\
@@ -64,4 +65,92 @@
 \item [MM] : 複数のモジュールを組み合わせるモジュール
 \item [ER] : エラーが起こったときに行なうモジュール
 \end{enumerate}
+
+\clearpage
+
+\section{ルーティング}
+本システムの各ページへのルーティングは、表\ref{routing1}及び表\ref{routing2}の通りです。
+
+\begin{table}[!htbp]
+\caption{ルーティング一覧（1/2）}
+\label{routing1}
+\small
+\begin{center}
+\begin{tabular}{|l|l|l|p{4cm}|}\hline
+ページ内容 & ルーティング & HTTPメソッド & 詳細\\\hline\hline
+トップページ & / & GET & トップページを表示します。 \\\hline
+\multirow{2}{*}{検索（お酒）} & \multirow{2}{*}{/search/drink?検索条件}
+& \multirow{2}{*}{GET} & 指定された検索条件に合致するお酒を表示します。\\\hline
+\multirow{2}{*}{検索（食材）} & \multirow{2}{*}{/search/food?検索条件}
+& \multirow{2}{*}{GET} & 指定された検索条件に合致する店舗を表示します。\\\hline
+\multirow{2}{*}{検索（観光地等）} & \multirow{2}{*}{/search/resort?検索条件}
+& \multirow{2}{*}{GET} & 指定された検索条件に合致する店舗を表示します。\\\hline
+\multirow{2}{*}{検索（店舗）} & \multirow{2}{*}{/search/store?検索条件}
+& \multirow{2}{*}{GET} & 指定された検索条件に合致する店舗を表示します。 \\\hline
+\multirow{2}{*}{検索（語句）} & \multirow{2}{*}{/search?検索語句}
+& \multirow{2}{*}{GET} & 指定された検索語句に合致する店舗を表示します。 \\\hline
+\multirow{4}{*}{お酒（詳細）} & \multirow{4}{*}{/detuil/:drink\_name}
+& \multirow{2}{*}{GET} & お酒の詳細ページを表示します。 \\\cline{3-4}
+ & & \multirow{2}{*}{POST} & お気に入り登録情報を送信します。 \\\hline
+\multirow{3}{*}{お酒（レビュー）} & \multirow{3}{*}{/detuil/:drink\_name/review}
+& \multirow{2}{*}{GET} & お酒に投稿されたレビューを表示します。\\\cline{3-4}
+ & & POST & レビューを送信します。 \\\hline
+\multirow{4}{*}{店舗（詳細）} & \multirow{4}{*}{/store:store\_name}
+& \multirow{2}{*}{GET} & 店舗の詳細ページを表示します。\\\cline{3-4}
+ & & \multirow{2}{*}{POST} & お気に入り登録情報を送信します。 \\\hline
+\multirow{3}{*}{店舗（レビュー）}& \multirow{3}{*}{/store:store\_name/review}
+& \multirow{2}{*}{GET} & 店舗に投稿されたレビューを表示します。 \\\cline{3-4}
+ & & POST & レビューを送信します。 \\\hline
+\multirow{4}{*}{ログイン（ユーザ）} & \multirow{4}{*}{/login\_user}
+& \multirow{2}{*}{GET} & ユーザ用のログイン画面を表示します。 \\\cline{3-4}
+& & \multirow{2}{*}{POST} & メールアドレスとパスワードを送信します。 \\\hline
+\multirow{4}{*}{ログイン（店舗）} & \multirow{4}{*}{/login\_store}
+& \multirow{2}{*}{GET} & 店舗用のログインページを表示します。 \\\cline{3-4}
+ & & \multirow{2}{*}{POST} & メールアドレスとパスワードを送信します。 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[!htbp]
+\caption{ルーティング一覧（2/2）}
+\label{routing2}
+\small
+\begin{center}
+\begin{tabular}{|l|l|l|p{4cm}|}\hline
+ページ内容 & ルーティング & HTTPメソッド & 詳細\\\hline\hline
+\multirow{2}{*}{マイページ（トップ）} & \multirow{2}{*}{/:user\_name}
+& \multirow{2}{*}{GET} & ユーザ用のマイページのトップページを表示します。 \\\hline
+\multirow{4}{*}{マイページ（お気に入り）} & \multirow{4}{*}{/:user\_name/favorite}
+& \multirow{2}{*}{GET} & ユーザの登録したお気に入り一覧を表示します。 \\\cline{3-4}
+ & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。 \\\hline
+\multirow{4}{*}{マイページ（レビュー）} & \multirow{4}{*}{/:user\_name/review}
+& \multirow{2}{*}{GET} & ユーザの投稿したレビュー一覧を表示します。 \\\cline{3-4}
+ & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。 \\\hline
+\multirow{5}{*}{マイページ（設定）} & \multirow{5}{*}{/:user\_name/config}
+& \multirow{2}{*}{GET} & ユーザアカウントの詳細設定ページを表示します。 \\\cline{3-4}
+ & & POST & 設定情報を送信します。 \\\cline{3-4}
+ & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。 \\\hline
+\multirow{5}{*}{店舗マイページ（編集）} & \multirow{5}{*}{/edit/:store\_name}
+& \multirow{2}{*}{GET} & 店舗の 登録情報編集画面を表示します。\\\cline{3-4}
+ & & POST & 登録情報を送信します。 \\\cline{3-4}
+ & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。\\\hline
+\multirow{2}{*}{店舗マイページ（レビュー）} & \multirow{2}{*}{/edit/:store\_name/review}
+& \multirow{2}{*}{GET} & 店舗に投稿されたレビューを表示します。 \\\hline
+\multirow{5}{*}{店舗マイページ（設定）} & \multirow{5}{*}{/edit/:store\_name/config}
+& \multirow{2}{*}{GET} & 店舗の詳細設定ページを表示します。\\\cline{3-4}
+ & & POST & 設定情報を送信します。 \\\cline{3-4}
+ & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで表示します。 \\\hline
+\multirow{3}{*}{ユーザ登録} & \multirow{3}{*}{/registration\_user}
+& \multirow{2}{*}{GET} & ユーザ用の登録ページを表示します。 \\\cline{3-4}
+ & & POST & 登録情報を送信します。 \\\hline
+\multirow{3}{*}{店舗登録申請} & \multirow{3}{*}{/request}
+& \multirow{2}{*}{GET} & 店舗用の登録申請ページを表示します。 \\\cline{3-4}
+ & & POST & 登録申請情報を送信します。\\\hline
+\multirow{3}{*}{店舗登録} & \multirow{3}{*}{/registration\_store}
+& \multirow{2}{*}{GET} & 店舗用の登録ページを表示します。\\\cline{3-4}
+ & & POST & 登録情報を送信します。\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 \end{document}
