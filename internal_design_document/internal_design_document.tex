@@ -38,18 +38,18 @@
 \subsection{使用言語}
 本システムでは、以下の言語を使用し開発しています。
 \begin{itemize}
-\item HTML
-\item CSS
+\item HTML5
+\item CSS3
 \item JavaScript
-\item Ruby
+\item Ruby 2.2.3
 \end{itemize}
 
 \subsection{使用フレームワーク}
 本システムでは、以下のフレームワークを使用しています。
 \begin{itemize}
-\item Bootstrap
-\item jQuery
-\item Ruby on Rails
+\item Bootstrap 3.3.6
+\item jQuery 2.1.4
+\item Ruby on Rails 4.2.4
 \end{itemize}
 
 \subsection{モジュール一覧}
@@ -71,7 +71,13 @@
 \subsection{モジュール定義}
 各言語において実現したい機能、および共通の機能は以下の通りです。
 \subsubsection{CSS}
+\begin{description}
+\item[ロールオーバー]~\\
+別画面へ遷移するボタンや画像にマウスポインタを当てたときに、色や画像が切り替わる機能を適用します。
+この機能を用いることで、別画面に遷移するボタンや画像を、ユーザが簡単に判断することができます。
+CSSより、background-imageの切り替えを行うことで、ロールオーバーを実現します。
 
+\end{description}
 
 \subsubsection{JavaScript}
 \begin{description}
@@ -90,6 +96,17 @@ JQueryよりslider関数を呼び出すことで、画像の自動切り替え�
 上記と同様で、画像の切り替えにフェード効果を適用します。
 JQueryよりsetInterval関数を呼び出して、
 fadeOutとfadeInを呼び出すことで画像の自動切り替え（フェード）を実現します。
+
+\item[星での評価]~\\
+ユーザが店舗へのレビューをする際、店舗の評価を星の数によって決めることができます。
+この機能を用いることで、ユーザが簡単に店舗の評価を決めることができます。
+JQueryよりraty関数を呼び出すことで、星での評価を実現します。
+
+\item[タブ切り替え]~\\
+検索画面において、別画面に遷移することなく検索項目を切り替えることができます。
+この機能を用いることで、検索項目を切り替える際にページを読み込む時間がなくなり、ユーザが検索したい項目をより早く選択することができます。
+JQueryより、removeClass関数とaddClass関数を呼び出すことで、タブ切り替えを実現します。
+
 \end{description}
 
 \newpage
