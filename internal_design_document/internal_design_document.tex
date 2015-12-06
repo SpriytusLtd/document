@@ -7,7 +7,7 @@
 
 \title{呑兵衛土佐巡\\
 内部設計書\\
-第0版}
+第1版}
 \author{株式会社Spirytus}
 \date{\today}
 
@@ -21,18 +21,18 @@
 \subsection{動作環境}
 動作環境は、以下のブラウザを推奨しています。
 \begin{itemize}
-\item Chrome
-\item Safari
-\item Opera
-\item IE
-\item Fireforx
+\item Chrome 47.0
+\item Safari 5.1.10
+\item Opera 33.0
+\item IE 11.0
+\item Fireforx 42.0
 \end{itemize}
 
 \subsection{開発環境}
 開発環境は、以下のOSを使用しています。
 \begin{itemize}
-\item Unix 6.5
-\item Mac X
+\item centOS 6.5
+\item Mac OSX
 \end{itemize}
 
 \subsection{使用言語}
@@ -55,19 +55,44 @@
 \subsection{モジュール一覧}
 本システムを構成するモジュールは、以下の通りです。
 \begin{enumerate}
-\item [SE] : データベースから検索条件にあった情報を取得するモジュール
-\item [RE] : データベースに情報を登録するモジュール
-\item [IN] : ログインする処理を行なうモジュール
-\item [CH] : データベースから情報を取得する際、データが正しいか確認するモジュール
-\item [DM] : メールを送信するモジュール
-\item [DE] : データベースに登録している情報を削除するモジュール
-\item [AL] : 計算するモジュール
-\item [MM] : 複数のモジュールを組み合わせるモジュール
-\item [ER] : エラーが起こったときに行なうモジュール
+\item [SEARCH] : データベースから検索条件にあった情報を取得するモジュール
+\item [REGISTER] : データベースに情報を登録するモジュール
+\item [LOGIN] : ログインする処理を行なうモジュール
+\item [CHECK] : データベースから情報を取得する際、データが正しいか確認するモジュール
+\item [DIRECT MAIL] : メールを送信するモジュール
+\item [DELETE] : データベースに登録している情報を削除するモジュール
+\item [ALGORITHM] : 計算するモジュール
+\item [MULTI MODULE] : 複数のモジュールを組み合わせるモジュール
+\item [ERROR] : エラーが起こったときに行なうモジュール
 \end{enumerate}
 
 \clearpage
 
+\subsection{モジュール定義}
+各言語において実現したい機能、および共通の機能は以下の通りです。
+\subsubsection{CSS}
+
+
+\subsubsection{JavaScript}
+\begin{description}
+\item [プルダウン]~\\
+ホーム画面の各タブ内において、メニューの階層をまとめて表示することが可能となります。
+この機能を用いることで、ユーザが目的のページまで容易に遷移することができます。
+JQueryよりhover関数を呼び出し、slideDown()とslideUp()を呼び出すことでプルダウンを実現します。
+
+\item [画像の自動切り替え（スライド）]~\\
+画面内で画像を表示させる際、画像の切り替えにスライド効果を適用します。
+この機能を用いることで、いくつかの情報（画像）を自動で出力することができるため、
+ユーザによりわかりやすく情報を提供することができます。
+JQueryよりslider関数を呼び出すことで、画像の自動切り替え（スライド）を実現します。
+
+\item[画像の自動切り替え（フェード）]~\\
+上記と同様で、画像の切り替えにフェード効果を適用します。
+JQueryよりsetInterval関数を呼び出して、
+fadeOutとfadeInを呼び出すことで画像の自動切り替え（フェード）を実現します。
+\end{description}
+
+\newpage
 \section{ルーティング}
 本システムの各ページへのルーティングと対応するコントローラは、表\ref{routing}の通りです。
 
