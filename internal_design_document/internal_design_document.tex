@@ -7,7 +7,7 @@
 
 \title{呑兵衛土佐巡\\
 内部設計書\\
-第0版}
+第1版}
 \author{株式会社Spirytus}
 \date{\today}
 
@@ -110,86 +110,70 @@ JQueryより、removeClass関数とaddClass関数を呼び出すことで、タ�
 
 \newpage
 \section{ルーティング}
-本システムの各ページへのルーティングは、表\ref{routing1}及び表\ref{routing2}の通りです。
+本システムの各ページへのルーティングと対応するコントローラは、表\ref{routing}の通りです。
 
 \begin{table}[!htbp]
-\caption{ルーティング一覧（1/2）}
-\label{routing1}
+\caption{ルーティング一覧}
+\label{routing}
 \small
 \begin{center}
 \begin{tabular}{|l|l|l|p{4cm}|}\hline
-ページ内容 & ルーティング & HTTPメソッド & 詳細\\\hline\hline
-トップページ & / & GET & トップページを表示します。 \\\hline
-\multirow{2}{*}{検索（お酒）} & \multirow{2}{*}{/search/drink?検索条件}
-& \multirow{2}{*}{GET} & 指定された検索条件に合致するお酒を表示します。\\\hline
-\multirow{2}{*}{検索（食材）} & \multirow{2}{*}{/search/food?検索条件}
-& \multirow{2}{*}{GET} & 指定された検索条件に合致する店舗を表示します。\\\hline
-\multirow{2}{*}{検索（観光地等）} & \multirow{2}{*}{/search/resort?検索条件}
-& \multirow{2}{*}{GET} & 指定された検索条件に合致する店舗を表示します。\\\hline
-\multirow{2}{*}{検索（店舗）} & \multirow{2}{*}{/search/store?検索条件}
-& \multirow{2}{*}{GET} & 指定された検索条件に合致する店舗を表示します。 \\\hline
-\multirow{2}{*}{検索（語句）} & \multirow{2}{*}{/search?検索語句}
-& \multirow{2}{*}{GET} & 指定された検索語句に合致する店舗を表示します。 \\\hline
-\multirow{4}{*}{お酒（詳細）} & \multirow{4}{*}{/detuil/:drink\_name}
-& \multirow{2}{*}{GET} & お酒の詳細ページを表示します。 \\\cline{3-4}
- & & \multirow{2}{*}{POST} & お気に入り登録情報を送信します。 \\\hline
-\multirow{3}{*}{お酒（レビュー）} & \multirow{3}{*}{/detuil/:drink\_name/review}
-& \multirow{2}{*}{GET} & お酒に投稿されたレビューを表示します。\\\cline{3-4}
- & & POST & レビューを送信します。 \\\hline
-\multirow{4}{*}{店舗（詳細）} & \multirow{4}{*}{/store:store\_name}
-& \multirow{2}{*}{GET} & 店舗の詳細ページを表示します。\\\cline{3-4}
- & & \multirow{2}{*}{POST} & お気に入り登録情報を送信します。 \\\hline
-\multirow{3}{*}{店舗（レビュー）}& \multirow{3}{*}{/store:store\_name/review}
-& \multirow{2}{*}{GET} & 店舗に投稿されたレビューを表示します。 \\\cline{3-4}
- & & POST & レビューを送信します。 \\\hline
-\multirow{4}{*}{ログイン（ユーザ）} & \multirow{4}{*}{/login\_user}
-& \multirow{2}{*}{GET} & ユーザ用のログイン画面を表示します。 \\\cline{3-4}
-& & \multirow{2}{*}{POST} & メールアドレスとパスワードを送信します。 \\\hline
-\multirow{4}{*}{ログイン（店舗）} & \multirow{4}{*}{/login\_store}
-& \multirow{2}{*}{GET} & 店舗用のログインページを表示します。 \\\cline{3-4}
- & & \multirow{2}{*}{POST} & メールアドレスとパスワードを送信します。 \\\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\begin{table}[!htbp]
-\caption{ルーティング一覧（2/2）}
-\label{routing2}
-\small
-\begin{center}
-\begin{tabular}{|l|l|l|p{4cm}|}\hline
-ページ内容 & ルーティング & HTTPメソッド & 詳細\\\hline\hline
-\multirow{2}{*}{マイページ（トップ）} & \multirow{2}{*}{/:user\_name}
-& \multirow{2}{*}{GET} & ユーザ用のマイページのトップページを表示します。 \\\hline
-\multirow{4}{*}{マイページ（お気に入り）} & \multirow{4}{*}{/:user\_name/favorite}
-& \multirow{2}{*}{GET} & ユーザの登録したお気に入り一覧を表示します。 \\\cline{3-4}
- & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。 \\\hline
-\multirow{4}{*}{マイページ（レビュー）} & \multirow{4}{*}{/:user\_name/review}
-& \multirow{2}{*}{GET} & ユーザの投稿したレビュー一覧を表示します。 \\\cline{3-4}
- & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。 \\\hline
-\multirow{5}{*}{マイページ（設定）} & \multirow{5}{*}{/:user\_name/config}
-& \multirow{2}{*}{GET} & ユーザアカウントの詳細設定ページを表示します。 \\\cline{3-4}
- & & POST & 設定情報を送信します。 \\\cline{3-4}
- & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。 \\\hline
-\multirow{5}{*}{店舗マイページ（編集）} & \multirow{5}{*}{/edit/:store\_name}
-& \multirow{2}{*}{GET} & 店舗の 登録情報編集画面を表示します。\\\cline{3-4}
- & & POST & 登録情報を送信します。 \\\cline{3-4}
- & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで指定します。\\\hline
-\multirow{2}{*}{店舗マイページ（レビュー）} & \multirow{2}{*}{/edit/:store\_name/review}
-& \multirow{2}{*}{GET} & 店舗に投稿されたレビューを表示します。 \\\hline
-\multirow{5}{*}{店舗マイページ（設定）} & \multirow{5}{*}{/edit/:store\_name/config}
-& \multirow{2}{*}{GET} & 店舗の詳細設定ページを表示します。\\\cline{3-4}
- & & POST & 設定情報を送信します。 \\\cline{3-4}
- & & \multirow{2}{*}{DELETE} & 削除対象をパラメータで表示します。 \\\hline
-\multirow{3}{*}{ユーザ登録} & \multirow{3}{*}{/registration\_user}
-& \multirow{2}{*}{GET} & ユーザ用の登録ページを表示します。 \\\cline{3-4}
- & & POST & 登録情報を送信します。 \\\hline
-\multirow{3}{*}{店舗登録申請} & \multirow{3}{*}{/request}
-& \multirow{2}{*}{GET} & 店舗用の登録申請ページを表示します。 \\\cline{3-4}
- & & POST & 登録申請情報を送信します。\\\hline
-\multirow{3}{*}{店舗登録} & \multirow{3}{*}{/registration\_store}
-& \multirow{2}{*}{GET} & 店舗用の登録ページを表示します。\\\cline{3-4}
- & & POST & 登録情報を送信します。\\\hline
+ページ内容 & ルーティング & HTTPメソッド & 対応するコントローラ\\\hline\hline
+トップページ & / & GET & \multirow{5}{*}{Indexesコントローラ} \\\cline{1-3}
+検索（お酒） & /drink?検索条件 & GET & \\\cline{1-3}
+検索（食材） & /food?検索条件 & GET & \\\cline{1-3}
+検索（店舗） & /store?検索条件 & GET &  \\\cline{1-3}
+検索（語句） & /search?検索語句 & GET & \\\hline
+\multirow{2}{*}{お酒（詳細）} & \multirow{2}{*}{/:drink\_name}
+& GET & \multirow{4}{*}{Drinksコントローラ} \\\cline{3-3}
+ & & POST &  \\\cline{1-3}
+\multirow{2}{*}{お酒（レビュー）} & \multirow{2}{*}{/:drink\_name/review}
+& GET & \\\cline{3-3}
+ & & POST & \\\hline
+\multirow{2}{*}{店舗（詳細）} & \multirow{2}{*}{/:store\_name}
+& GET & \multirow{4}{*}{Storesコントローラ} \\\cline{3-3}
+ & & POST &  \\\cline{1-3}
+\multirow{2}{*}{店舗（レビュー）}& \multirow{2}{*}{/:store\_name/review}
+& GET &  \\\cline{3-3}
+ & & POST &\\\hline
+検索（観光地等） & /resort?検索条件 & GET & Resortsコントローラ \\\hline
+\multirow{2}{*}{ユーザ登録} & \multirow{2}{*}{/registration\_user}
+& GET & \multirow{12}{*}{Userコントローラ} \\\cline{3-3}
+ & & POST & \\\cline{1-3}
+ \multirow{2}{*}{ログイン（ユーザ）} & \multirow{2}{*}{/login\_user}
+ & GET & \\\cline{3-3}
+ & & POST & \\\cline{1-3}
+マイページ（トップ） & /:user\_name
+& GET & \\\cline{1-3}
+\multirow{2}{*}{マイページ（お気に入り）} & /:user\_name/favorites
+& GET & \\\cline{2-3}
+ & /:user\_name/favorites/:favorite\_id & DELETE & \\\cline{1-3}
+\multirow{2}{*}{マイページ（レビュー）} & /:user\_name/reviews
+& GET & \\\cline{2-3}
+ & /user\_name/reviews/:review\_id & DELETE & \\\cline{1-3}
+\multirow{3}{*}{マイページ（設定）} & \multirow{3}{*}{/:user\_name/config}
+& GET & \\\cline{3-3}
+ & & POST & \\\cline{3-3}
+ & & DELETE & \\\hline
+ \multirow{2}{*}{店舗登録申請} & \multirow{2}{*}{/store/request}
+ & GET & \multirow{13}{*}{Storeコントローラ} \\\cline{3-3}
+  & & POST &\\\cline{1-3}
+ \multirow{2}{*}{店舗登録} & \multirow{2}{*}{/store/registration}
+ & GET &\\\cline{3-3}
+  & & POST &\\\cline{1-3}
+ \multirow{2}{*}{ログイン（店舗）} & \multirow{2}{*}{/login\_store}
+ & GET & \\\cline{3-3}
+  & & POST & \\\cline{1-3}
+\multirow{3}{*}{店舗マイページ（編集）}& \multirow{3}{*}{/store/:store\_name}
+& GET & \\\cline{3-3}
+ & & POST & \\\cline{3-3}
+ & & DELETE & \\\cline{1-3}
+店舗マイページ（レビュー） & /store/:store\_name/review
+& GET & \\\cline{1-3}
+\multirow{3}{*}{店舗マイページ（設定）} & \multirow{3}{*}{/store/:store\_name/config}
+& GET & \\\cline{3-3}
+ & & POST & \\\cline{3-3}
+ & & DELETE & \\\hline
 \end{tabular}
 \end{center}
 \end{table}
