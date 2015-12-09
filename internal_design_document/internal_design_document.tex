@@ -295,4 +295,177 @@ Resort & & & 観光地に関するモデルです。 \\\hline
 \end{center}
 \end{table}
 
+\clearpage
+
+\section{モデル定義}
+本システムで作成し、使用するモデルの定義は次の通りです。
+
+\subsection{User}
+Userモデルの定義は、表\ref{user}の通りです。
+
+\begin{table}[!htbp]
+\caption{Userモデルの定義}
+\label{user}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+name & text & $\circ$ \\\hline
+email & string & $\circ$ \\\hline
+password & string & $\circ$ \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Store}
+Storeモデルの定義は、表\ref{store}の通りです。
+
+\begin{table}[!htbp]
+\caption{Storeモデルの定義}
+\label{store}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+name & text & $\circ$ \\\hline
+email & string & $\circ$ \\\hline
+password & string & $\circ$ \\\hline
+address & text & $\circ$ \\\hline
+phone_number & string & $\circ$ \\\hline
+budget & integer & $\circ$ \\\hline
+detail & text & $\circ$ \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Drink}
+Drinkモデルの定義は、表\ref{drink}の通りです。
+
+\begin{table}[!htbp]
+\caption{Drinkモデルの定義}
+\label{drink}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+name & text & $\circ$ \\\hline
+alcohol & integer & $\circ$ \\\hline
+detail & text & $\circ$ \\\hline
+alcoholic_id & integer & $\circ$ \\\hline
+brewer_id & integer & $\circ$ \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Dish}
+Dishモデルの定義は、表\ref{dish}の通りです。
+
+\begin{table}[!htbp]
+\caption{Dishモデルの定義}
+\label{dish}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+name & text & $\circ$ \\\hline
+local_dishes & boolean & $\circ$ \\\hline
+detail & text & $\circ$ \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Ingredient}
+Ingredientモデルの定義は、表\ref{ingredient}の通りです。
+
+\begin{table}[!htbp]
+\caption{Ingredientモデルの定義}
+\label{ingredient}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+name & text & $\circ$ \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Brewer}
+Brewerモデルの定義は、表\ref{brewer}の通りです。
+
+\begin{table}[!htbp]
+\caption{Brewerモデルの定義}
+\label{brewer}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+name & text & $\circ$ \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Alcoholic}
+Alcoholicモデルの定義は、表\ref{alcoholic}の通りです。
+
+\begin{table}[!htbp]
+\caption{Alcoholicモデルの定義}
+\label{alcoholic}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+name & text & $\circ$ \\\hline
+item_x1 & text & $\circ$ \\\hline
+item_x2 & text & $\circ$ \\\hline
+item_y1 & text & $\circ$ \\\hline
+item_y2 & text & $\circ$ \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Review}
+Reviewモデルの定義は、表\ref{review}の通りです。
+
+\begin{table}[!htbp]
+\caption{Reviewモデルの定義}
+\label{review}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Favorite}
+Favoriteモデルの定義は、表\ref{favorite}の通りです。
+
+\begin{table}[!htbp]
+\caption{Favoriteモデルの定義}
+\label{favorite}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Resort}
+Resortモデルの定義は、表\ref{resort}の通りです。
+
+\begin{table}[!htbp]
+\caption{Resortモデルの定義}
+\label{resort}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+name & text & $\circ$ \\\hline
+address & text & $\circ$ \\\hline
+detail & text & $\circ$ \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 \end{document}
