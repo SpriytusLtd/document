@@ -274,6 +274,43 @@ Resort & & & 観光地に関するモデルです。 \\\hline
 \end{center}
 \end{table}
 
+
+\section{ビュー}
+本システムで作成し、使用するビューは表\ref{view}の通りです。
+
+\begin{table}[!htbp]
+\caption{ビュー一覧}
+\label{view}
+\small
+\begin{center}
+\begin{tabular}{|l|l|p{4cm}|}\hline
+ビュー名 & ルーティング & 詳細\\\hline\hline
+indexes/index.html.erb & / & トップページです。 \\\hline
+\multirow{5}{*}{indexes/search.html.erb} & /drink?検索条件 & \multirow{5}{*}{検索結果ページです。} \\\cline{2-2}
+& /food?検索条件 & \\\cline{2-2}
+& /store?検索条件 & \\\cline{2-2}
+& /resort?検索条件 & \\\cline{2-2}
+& /search?検索語句 & \\\hline
+drinks/show.html.erb & /:drink\_name & お酒の詳細ページです。\\\hline
+drinks/review.html.erb & /:drink\_name/review & お酒のレビューページです。 \\\hline
+stores/show.html.erb & /:store\_name & 店舗の詳細ページです。 \\\hline
+stores/review.html.erb & /:store\_name/review & 店舗のレビューページです。 \\\hline
+users/registration.html.erb & /registration\_user & ユーザ用の登録ページです。 \\\hline
+\multirow{2}{*}{users/login.html.erb} & \multirow{2}{*}{/login\_user} & ユーザ用のログインページです。 \\\hline
+\multirow{2}{*}{users/index.html.erb} & \multirow{2}{*}{/:user\_name} & ユーザのマイページのトップページです。 \\\hline
+\multirow{2}{*}{users/favorite.html.erb}  & \multirow{2}{*}{/:user\_name/favorites} & ユーザのマイページのお気に入りページです。 \\\hline
+\multirow{2}{*}{users/review.html.erb} & \multirow{2}{*}{/:user\_name/reviews} & ユーザのマイページのレビューページです。 \\\hline
+\multirow{2}{*}{users/config.html.erb} & \multirow{2}{*}{/:user\_name/config} & ユーザのマイページの詳細設定用ページです。 \\\hline
+stores/request.html.erb & /store/request & 店舗の登録申請ページです。 \\\hline
+stores/registration.html.erb & /store/registration & 店舗用の登録ページです。 \\\hline
+stores/login.html.erb & /login\_store & 店舗用のログインページです。\\\hline
+\multirow{2}{*}{stores/index.html.erb} & \multirow{2}{*}{/store/:store\_name} & 店舗のマイページのトップページです。 \\\hline
+\multirow{2}{*}{stores/review.html.erb} & \multirow{2}{*}{/store/:store\_name/review} & 店舗のマイページのレビューページです。 \\\hline
+\multirow{2}{*}{stores/config.html.erb} & \multirow{2}{*}{/store/:store\_name/config} & 店舗のマイページの詳細設定用ページです。 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 \clearpage
 
 \section{ライブラリ}
