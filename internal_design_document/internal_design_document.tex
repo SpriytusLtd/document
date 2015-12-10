@@ -266,9 +266,6 @@ Alcoholic & Drink & 1:N & 酒類に関するモデルです。 \\\hline
 \multirow{3}{*}{Review} & User & N:1 & \multirow{3}{*}{レビューに関するモデルです。} \\\cline{2-3}
  & Store & N:1 & \\\cline{2-3}
  & Drink & N:1 & \\\hline
-\multirow{3}{*}{Favorite} & User & N:1 & \multirow{3}{*}{お気に入りに関するモデルです。} \\\cline{2-3}
- & Store & N:1 & \\\cline{2-3}
- & Drink & N:1 & \\\hline
 Resort & & & 観光地に関するモデルです。 \\\hline
 \end{tabular}
 \end{center}
@@ -415,10 +412,12 @@ Alcoholicモデルの定義は、表\ref{alcoholic}の通りです。
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
 name & text & $\circ$ \\\hline
-item\_x1 & text & $\circ$ \\\hline
-item\_x2 & text & $\circ$ \\\hline
-item\_y1 & text & $\circ$ \\\hline
-item\_y2 & text & $\circ$ \\\hline
+item1 & text & $\circ$ \\\hline
+item2 & text & $\circ$ \\\hline
+item3 & text & $\circ$ \\\hline
+item4 & text & $\circ$ \\\hline
+item5 & text & $\circ$ \\\hline
+item6 & text & $\circ$ \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -429,20 +428,6 @@ Reviewモデルの定義は、表\ref{review}の通りです。
 \begin{table}[!htbp]
 \caption{Reviewモデルの定義}
 \label{review}
-\small
-\begin{center}
-\begin{tabular}{|l|l|c|}\hline
-カラム名 & 型 & null \\\hline\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\subsection{Favorite}
-Favoriteモデルの定義は、表\ref{favorite}の通りです。
-
-\begin{table}[!htbp]
-\caption{Favoriteモデルの定義}
-\label{favorite}
 \small
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
