@@ -7,7 +7,7 @@
 
 \title{呑兵衛土佐巡\\
 内部設計書\\
-第1版}
+第2版}
 \author{株式会社Spirytus}
 \date{\today}
 
@@ -103,44 +103,65 @@ CSSより、background-imageの切り替えを行うことで、ロールオー�
 
 \subsubsection{JavaScript}
 \begin{description}
-\item [プルダウン]~\\
-ホーム画面の各タブ内において、メニューの階層をまとめて表示することが可能となります。
-この機能を用いることで、ユーザが目的のページまで容易に遷移することができます。
-JQueryよりhover関数を呼び出し、slideDown()とslideUp()を呼び出すことでプルダウンを実現します。
+\item [プルダウン]~
+  \begin{description}
+    \item [メソッド名] : pullDown
+    \item [使用するライブラリ] : jQuery
+    \item [処理] : jQueryのclick()プロパティを使用しクリックされると項目が出現するようになります。
+  \end{description}
 
-\item [画像の自動切り替え（スライド）]~\\
-画面内で画像を表示させる際、画像の切り替えにスライド効果を適用します。
-この機能を用いることで、いくつかの情報（画像）を自動で出力することができるため、
-ユーザによりわかりやすく情報を提供することができます。
-JQueryよりslider関数を呼び出すことで、画像の自動切り替え（スライド）を実現します。
+\item [画像の自動切り替え（スライド）]~
+  \begin{description}
+    \item [メソッド名] : imgSlide
+    \item [使用するライブラリ] : jQuery、SLIDEJS
+    \item [処理] : SLIDEJSを読み込みます。
+    その後、設定を追加します。
+    navigationクラスの変数名activeをfalseに変更します。
+    playクラスの変数名activeをfalseに変更します。
+  \end{description}
 
-\item[画像の自動切り替え（フェード）]~\\
-上記と同様で、画像の切り替えにフェード効果を適用します。
-JQueryよりsetInterval関数を呼び出して、
-fadeOutとfadeInを呼び出すことで画像の自動切り替え（フェード）を実現します。
+\item[画像の自動切り替え（フェード）]~
+  \begin{description}
+    \item [メソッド名] : imgFade
+    \item [使用するライブラリ] : jQuery
+    \item [処理] : addClase()で現在表示している画像にactiveクラスを追加します。
+    setInterval()を使用し画像が何秒おきに切り替わるか設定します。
+    activeクラスをfadeOut()で、フェードアウトさせ、activeクラスを削除します。
+    その後、次に表示させる画像をfadeIn()で、フェードインさせactiveクラスを追加します。
+  \end{description}
 
-\item[星での評価]~\\
-ユーザが店舗へのレビューをする際、店舗の評価を星の数によって決めることができます。
-この機能を用いることで、ユーザが簡単に店舗の評価を決めることができます。
-JQueryよりraty関数を呼び出すことで、星での評価を実現します。
+\item[星での評価]~
+  \begin{description}
+    \item [メソッド名] : starReview
+    \item [使用するライブラリ] : jQuery、Raty
+    \item [処理] : Ratyを読み込ませます。
+    raty()プロパティを呼び出します。
+  \end{description}
 
 \item[タブ切り替え]~\\
 検索画面において、別画面に遷移することなく検索項目を切り替えることができます。
 この機能を用いることで、検索項目を切り替える際にページを読み込む時間がなくなり、ユーザが検索したい項目をより早く選択することができます。
 JQueryより、removeClass関数とaddClass関数を呼び出すことで、タブ切り替えを実現します。
 
-\item[説明画面出力(lightbox)]~\\
-詳しい説明を画像と説明文で説明する際、表示対象が出てきます。
-同じHTML上に表示したいものを隠しているので、使い過ぎは修正や更新時に混乱を招くかもしれませんが、ワンポイントな強調目的に便利です。
-画像とテキストを対応ファイルとしています。
-JavaScriptでleanModal()を呼び出すことで説明画面出力(lightbox)を実現します。
+\item[説明画面出力(lightbox)]~
+  \begin{description}
+    \item [メソッド名] : showInfo
+    \item [使用するライブラリ] : jQuery
+    \item [処理] : click()プロパティを使用し、処理が開始されます。
+    blur()を使用し、モーダルウィンドウが多重起動しないように設定します。
+    append()プロパティを使用し、HTMLの末尾にdivタグを生成します。
+    fadeIn()で先ほど生成したdivタグをフェードインさせます。
+    centeringModalSyncer()メソッドを作成し、表示位置を中央に設定します。
+  \end{description}
 
-\item[Topに戻るボタン]~\\
-ページを最上部まで戻す際、右下にボタンを配置させておき、初期段階ではボタンを非表示にしておきます。
-スクロールイベントを加え、スクール量を取得してからスクロールイベントが発生する位置を調整します。
-ready関数を呼び出すことでTopに戻るボタンを実現します。
+\item[Topに戻るボタン]~
+  \begin{description}
+    \item [メソッド名] : retrunTop
+    \item [使用するライブラリ] : jQuery
+    \item [処理] : click()プロパティを使用し、animate()プロパティを呼び出します。
+  \end{description}
 
-\item[十字チャートでの評価]~\\
+\item[十字チャートでの評価]~
 ユーザがお酒のレビューをする際、お酒の評価を十字チャートで決めることができます。
 この機能を用いることで、ユーザがお酒の評価を決めることができます。
 JavaScriptからレーダーチャートをcanvas要素に描画します。
