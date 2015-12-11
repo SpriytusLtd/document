@@ -176,9 +176,9 @@ JavaScriptからレーダーチャートをcanvas要素に描画します。
 & GET &  \\\cline{3-3}
  & & POST &\\\hline
 検索（観光地等） & /resort?検索条件 & GET & Resortsコントローラ \\\hline
-\multirow{2}{*}{ユーザ登録} & \multirow{2}{*}{/registration\_user}
+\multirow{2}{*}{ユーザ登録} & /user/new
 & GET & \multirow{12}{*}{Userコントローラ} \\\cline{3-3}
- & & POST & \\\cline{1-3}
+ & /user/create & POST & \\\cline{1-3}
  \multirow{2}{*}{ログイン（ユーザ）} & \multirow{2}{*}{/login\_user}
  & GET & \\\cline{3-3}
  & & POST & \\\cline{1-3}
@@ -197,9 +197,9 @@ JavaScriptからレーダーチャートをcanvas要素に描画します。
  \multirow{2}{*}{店舗登録申請} & \multirow{2}{*}{/store/request}
  & GET & \multirow{13}{*}{Storeコントローラ} \\\cline{3-3}
   & & POST &\\\cline{1-3}
- \multirow{2}{*}{店舗登録} & \multirow{2}{*}{/store/registration}
+ \multirow{2}{*}{店舗登録} & /store/new
  & GET &\\\cline{3-3}
-  & & POST &\\\cline{1-3}
+  & /store/create & POST &\\\cline{1-3}
  \multirow{2}{*}{ログイン（店舗）} & \multirow{2}{*}{/login\_store}
  & GET & \\\cline{3-3}
   & & POST & \\\cline{1-3}
@@ -274,7 +274,9 @@ Resort & & & 観光地に関するモデルです。 \\\hline
 \end{center}
 \end{table}
 
-
+/**
+ * WIP 登録部分のルーティング見直し
+ */
 \section{ビュー}
 本システムで作成し、使用するビューは表\ref{view}の通りです。
 
