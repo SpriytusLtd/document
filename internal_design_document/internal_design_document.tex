@@ -319,6 +319,21 @@ password & string & \\\hline
 \subsection{Store}
 Storeモデルは、StoreReviewモデルと1:Nの関係にあります。
 また、Userモデル、Drinkモデル、DishモデルとN:Mの関係にあります。
+
+Storeモデルには、searchメソッドが存在します。
+
+\begin{enumerate}
+\item [メソッド名 :] search
+\item [入力 :] 検索パラメータ
+\item [出力 :] 検索結果
+\item [処理 :]\mbox{}\\
+  \begin{enumerate}
+  \item 検索方法を判断する。
+  \item 検索パラメータを入力に検索結果を抽出する。
+  \item 検索結果をコントローラに返す。
+  \end{enumerate}
+\end{enumerate}
+
 Storeモデルのカラムは、表\ref{store}の通りです。
 
 \begin{table}[!htbp]
