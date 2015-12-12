@@ -173,9 +173,15 @@ CSSより、background-imageの切り替えを行うことで、ロールオー�
   \end{description}
 
 \item[タブ切り替え]~\\
-検索画面において、別画面に遷移することなく検索項目を切り替えることができます。
-この機能を用いることで、検索項目を切り替える際にページを読み込む時間がなくなり、ユーザが検索したい項目をより早く選択することができます。
-JQueryより、removeClass関数とaddClass関数を呼び出すことで、タブ切り替えを実現します。
+\begin{description}
+\item メソッド：changTab
+\item ライブラリ：jQuery
+\item 処理
+\item Click()で処理を呼び出す
+\item Index()で対応する番号を取り出す
+\item その番号を対応するリストをeq()で探し、CSSを変更する
+\item 現在のselectクラスを削除し、新しいselectクラスを追加する
+\emd{description}
 
 \item[説明画面出力(lightbox)]~
   \begin{description}
@@ -195,10 +201,36 @@ JQueryより、removeClass関数とaddClass関数を呼び出すことで、タ�
     \item [処理] : click()プロパティを使用し、animate()プロパティを呼び出します。
   \end{description}
 
-\item[十字チャートでの評価]~
-ユーザがお酒のレビューをする際、お酒の評価を十字チャートで決めることができます。
-この機能を用いることで、ユーザがお酒の評価を決めることができます。
-JavaScriptからレーダーチャートをcanvas要素に描画します。
+
+\item[十字チャートでの評価]~\\
+\begin{description}
+\item メソッド：crossReviw
+\item JavaScriptを使って図形を描くために使われる新しいHTML要素の一つであるcanvas要素を用います。
+以下はパスを使用して図形を描くための命令です
+\item beginPath() – パスを開始します
+\item closePath() – パスを閉じます(始点に向けて直線を描くことで図形を閉じます)
+\item stroke() – 線でパスを描きます
+\item moveTo(x, y) – パスの始点を移動します
+\item lineTo(x, y) – 現在の始点の座標(x, y)に向けて直線を描きます
+\item 項目をつけるのにfillText()を使用します
+\item 画像つけるのにimageオブジェクトを生成し、drowimageで画像の表示
+\item 引数：レビューの平均値を取ってくる
+\item 出力：レビューグラフを表示
+\end{description}
+
+\item[レーダーチャート]~\\
+\begin{description}
+\item メソッド：radarCloss
+\item ライブラリ：radar.js
+\item 処理
+\item Onloadでページが呼び出された時に処理が行われるようにする
+\item New html5jp.graph.radar()を変数に格納する
+\item 配列を作成し、最初の要素に項目名と数値を格納した配列として定義する
+\item オブジェクトを作成し、aCapプロパティで項目を指定する
+\item Drawで要素と数値を引数にし、グラフを作成
+\item 引数：レビューの平均値を取ってくる
+\item 出力：レビューグラフを表示
+\end{description}
 
 \end{description}
 
