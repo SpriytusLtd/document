@@ -207,7 +207,7 @@ JavaScriptからレーダーチャートをcanvas要素に描画します。
 & GET & \\\cline{3-3}
  & & POST & \\\cline{3-3}
  & & DELETE & \\\cline{1-3}
-店舗マイページ（レビュー） & /omise/:store\_name/review
+店舗マイページ（レビュー） & /omise/:store\_name/reviews
 & GET & \\\cline{1-3}
 \multirow{3}{*}{店舗マイページ（設定）} & \multirow{3}{*}{/omise/:store\_name/config}
 & GET & \\\cline{3-3}
@@ -274,9 +274,7 @@ Resort & & & 観光地に関するモデルです。 \\\hline
 \end{center}
 \end{table}
 
-/**
- * WIP 登録部分のルーティング見直し
- */
+
 \section{ビュー}
 本システムで作成し、使用するビューは表\ref{view}の通りです。
 
@@ -293,9 +291,9 @@ indexes/index.html.erb & / & トップページです。 \\\hline
 & /store?検索条件 & \\\cline{2-2}
 & /resort?検索条件 & \\\hline
 drinks/show.html.erb & /:drink\_name & お酒の詳細ページです。\\\hline
-drinks/review.html.erb & /:drink\_name/review & お酒のレビューページです。 \\\hline
+drinks/review.html.erb & /:drink\_name/reviews & お酒のレビューページです。 \\\hline
 stores/show.html.erb & /store/:store\_name & 店舗の詳細ページです。 \\\hline
-stores/review.html.erb & /store/:store\_name/review & 店舗のレビューページです。 \\\hline
+stores/review.html.erb & /store/:store\_name/reviews & 店舗のレビューページです。 \\\hline
 users/registration.html.erb & /user & ユーザ用の登録ページです。 \\\hline
 \multirow{2}{*}{users/login.html.erb} & \multirow{2}{*}{/login} & ユーザ用のログインページです。 \\\hline
 \multirow{2}{*}{users/index.html.erb} & \multirow{2}{*}{/:user\_name} & ユーザのマイページのトップページです。 \\\hline
@@ -306,7 +304,7 @@ stores/request.html.erb & /omise/request & 店舗の登録申請ページです�
 stores/registration.html.erb & /omise & 店舗用の登録ページです。 \\\hline
 stores/login.html.erb & /omise/login & 店舗用のログインページです。\\\hline
 \multirow{2}{*}{stores/index.html.erb} & \multirow{2}{*}{/store/:store\_name} & 店舗のマイページのトップページです。 \\\hline
-\multirow{2}{*}{stores/review.html.erb} & \multirow{2}{*}{/store/:store\_name/review} & 店舗のマイページのレビューページです。 \\\hline
+\multirow{2}{*}{stores/review.html.erb} & \multirow{2}{*}{/store/:store\_name/reviews} & 店舗のマイページのレビューページです。 \\\hline
 \multirow{2}{*}{stores/config.html.erb} & \multirow{2}{*}{/store/:store\_name/config} & 店舗のマイページの詳細設定用ページです。 \\\hline
 \end{tabular}
 \end{center}
