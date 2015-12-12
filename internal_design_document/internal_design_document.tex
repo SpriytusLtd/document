@@ -300,6 +300,7 @@ Resort & & & 観光地に関するモデルです。 \\\hline
 \subsection{User}
 Userモデルは、StoreReviewモデル、DrinkReviewモデルと1:Nの関係にあります。
 また、Storeモデル、DrinkモデルとN:Mの関係にあります。
+
 Userモデルのカラムは、表\ref{user}の通りです。
 
 \begin{table}[!htbp]
@@ -358,6 +359,21 @@ detail & text & \\\hline
 Drinkモデルは、DrinkReviewモデルと1:Nの関係にあります。
 また、Brewerモデル、AlcoholicモデルとN:1の関係にあります。
 さらに、Userモデル、StoreモデルとN:Mの関係にあります。
+
+Drinkモデルには、searchメソッドが存在します。
+
+\begin{description}
+\item [メソッド名 :] search
+\item [入力 :] 検索パラメータ
+\item [出力 :] 検索結果
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item 検索方法を判断する。
+  \item 検索パラメータを入力に検索結果を抽出する。
+  \item 検索結果をコントローラに返す。
+  \end{enumerate}
+\end{description}
+
 Drinkモデルのカラムは、表\ref{drink}の通りです。
 
 \begin{table}[!htbp]
@@ -378,6 +394,7 @@ brewer\_id & integer & $\circ$ \\\hline
 
 \subsection{Dish}
 Dishモデルは、Storeモデル、IngredientモデルとN:Mの関係にあります。
+
 Dishモデルのカラムは、表\ref{dish}の通りです。
 
 \begin{table}[!htbp]
@@ -396,6 +413,7 @@ detail & text & $\circ$ \\\hline
 
 \subsection{Ingredient}
 Ingredientモデルは、DishモデルとN:Mの関係にあります。
+
 Ingredientモデルのカラムは、表\ref{ingredient}の通りです。
 
 \begin{table}[!htbp]
@@ -412,6 +430,7 @@ name & text & \\\hline
 
 \subsection{Brewer}
 Brewerモデルは、Drinkモデルと1:Nの関係にあります。
+
 Brewerモデルのカラムは、表\ref{brewer}の通りです。
 
 \begin{table}[!htbp]
@@ -428,6 +447,7 @@ name & text & \\\hline
 
 \subsection{Alcoholic}
 Alcoholicモデルは、Drinkモデルと1:Nの関係があります。
+
 Alcoholicモデルのカラムは、表\ref{alcoholic}の通りです。
 
 \begin{table}[!htbp]
@@ -450,6 +470,7 @@ item6 & text & $\circ$ \\\hline
 
 \subsection{StoreReview}
 StoreReviewモデルは、Userモデル、StoreモデルとN:1の関係にあります。
+
 StoreReviewモデルのカラムは、表\ref{store_review}の通りです。
 StoreReviewモデルの主キーは、user\_idとstore\_idです。
 
@@ -469,6 +490,7 @@ body & text & \\\hline
 
 \subsection{DrinkReview}
 DrinkReviewモデルは、Userモデル、DrinkモデルとN:1の関係にあります。
+
 DrinkReviewモデルのカラムは、表\ref{drink_review}の通りです。
 DrinkReviewモデルの主キーは、user\_idとdrink\_idです。
 
