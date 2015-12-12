@@ -7,7 +7,7 @@
 
 \title{呑兵衛土佐巡\\
 内部設計書\\
-第1版}
+第2版}
 \author{株式会社Spirytus}
 \date{\today}
 
@@ -93,57 +93,197 @@ Ruby on Railsは、コーディング解析ツール「RuboCop」を使用して
 
 \subsection{モジュール定義}
 各言語において実現したい機能、および共通の機能は以下の通りです。
+
+\subsubsection{HTML}
+\begin{description}
+\item [title]~\\
+画面のタイトルは以下の通りです。
+
+\begin{itemize}
+\item 呑兵衛土佐巡
+\item 「酒類 味 アルコール度数」のお酒 呑兵衛土佐巡
+\item 高知の「食材の種類名」 呑兵衛土佐巡
+\item 「酒名or食材名or郷土料理名or観光地名」に該当する店舗 呑兵衛土佐巡
+\item 「検索ワード」の検索結果 呑兵衛土佐巡
+\item 「酒名」詳細情報 呑兵衛土佐巡
+\item 「酒名」レビュー 呑兵衛土佐巡
+\item 「店舗名」詳細情報 呑兵衛土佐巡
+\item 「店舗名」レビュー 呑兵衛土佐巡
+\item 高知の観光地一覧 呑兵衛土佐巡
+\item ユーザ登録 呑兵衛土佐巡
+\item ユーザログイン 呑兵衛土佐巡
+\item マイページ 呑兵衛土佐巡
+\item マイページ お気に入り一覧 呑兵衛土佐巡
+\item マイページ お気に入り削除 呑兵衛土佐巡
+\item マイページ レビュー一覧 呑兵衛土佐巡
+\item マイページ レビュー削除 呑兵衛土佐巡
+\item マイページ設定 呑兵衛土佐巡
+\item 店舗登録申請 呑兵衛土佐巡
+\item 店舗登録 呑兵衛土佐巡
+\item 店舗ログイン 呑兵衛土佐巡
+\item 店舗マイページ 呑兵衛土佐巡
+\item 店舗マイページ レビュー一覧 呑兵衛土佐巡
+\item 店舗マイページ設定 呑兵衛土佐巡
+\end{itemize}
+
+\item [meta]~\\
+metaタグは以下の通りです。
+
+\begin{itemize}
+<meta charset = "utf-8">
+\end{itemize}
+
+
+\item [link]~\\
+linkタグは以下の通りです。
+
+\begin{itemize}
+<link rel="stylesheet" href=".css" type="text/css">
+\end{itemize}
+
+
+\item [script]~\\
+scriptタグは以下の通りです。
+
+\begin{itemize}
+<script type="text/javascript" src=".js"></script>
+\end{itemize}
+
+\end{description}
+
 \subsubsection{CSS}
 \begin{description}
 \item[ロールオーバー]~\\
 別画面へ遷移するボタンや画像にマウスポインタを当てたときに、色や画像が切り替わる機能を適用します。
 この機能を用いることで、別画面に遷移するボタンや画像を、ユーザが簡単に判断することができます。
 CSSより、background-imageの切り替えを行うことで、ロールオーバーを実現します。
+
+\item [フォント]~\\
+フォントは以下の２種類です。
+
+\begin{itemize}
+\item serif
+\item cursive
+\end{itemize}
+
+\item [フォントサイズ]~\\
+フォントは%指定で以下の3種類です。
+
+\begin{itemize}
+\item お酒、食材、観光地、店舗の説明文を100%
+\item 題名を150%
+\item 題名の赤文字200%
+\end{itemize}
+
+
+\item [class]~\\
+汎用的に使用するclassは以下の3種類です。
+
+\begin{itemize}
+\item ロゴ(クリックするとTopページに戻る)
+\item デザイン
+\item ページTopへ戻るボタン
+\end{itemize}
+
 \end{description}
+
 
 \subsubsection{JavaScript}
 \begin{description}
-\item [プルダウン]~\\
-ホーム画面の各タブ内において、メニューの階層をまとめて表示することが可能となります。
-この機能を用いることで、ユーザが目的のページまで容易に遷移することができます。
-JQueryよりhover関数を呼び出し、slideDown()とslideUp()を呼び出すことでプルダウンを実現します。
+\item [プルダウン]~
+  \begin{description}
+    \item [メソッド名] : pullDown
+    \item [使用するライブラリ] : jQuery
+    \item [処理] : jQueryのclick()プロパティを使用しクリックされると項目が出現するようになります。
+  \end{description}
 
-\item [画像の自動切り替え（スライド）]~\\
-画面内で画像を表示させる際、画像の切り替えにスライド効果を適用します。
-この機能を用いることで、いくつかの情報（画像）を自動で出力することができるため、
-ユーザによりわかりやすく情報を提供することができます。
-JQueryよりslider関数を呼び出すことで、画像の自動切り替え（スライド）を実現します。
+\item [画像の自動切り替え（スライド）]~
+  \begin{description}
+    \item [メソッド名] : imgSlide
+    \item [使用するライブラリ] : jQuery、SLIDEJS
+    \item [処理] : SLIDEJSを読み込みます。
+    その後、設定を追加します。
+    navigationクラスの変数名activeをfalseに変更します。
+    playクラスの変数名activeをfalseに変更します。
+  \end{description}
 
-\item[画像の自動切り替え（フェード）]~\\
-上記と同様で、画像の切り替えにフェード効果を適用します。
-JQueryよりsetInterval関数を呼び出して、
-fadeOutとfadeInを呼び出すことで画像の自動切り替え（フェード）を実現します。
+\item[画像の自動切り替え（フェード）]~
+  \begin{description}
+    \item [メソッド名] : imgFade
+    \item [使用するライブラリ] : jQuery
+    \item [処理] : addClase()で現在表示している画像にactiveクラスを追加します。
+    setInterval()を使用し画像が何秒おきに切り替わるか設定します。
+    activeクラスをfadeOut()で、フェードアウトさせ、activeクラスを削除します。
+    その後、次に表示させる画像をfadeIn()で、フェードインさせactiveクラスを追加します。
+  \end{description}
 
-\item[星での評価]~\\
-ユーザが店舗へのレビューをする際、店舗の評価を星の数によって決めることができます。
-この機能を用いることで、ユーザが簡単に店舗の評価を決めることができます。
-JQueryよりraty関数を呼び出すことで、星での評価を実現します。
+\item[星での評価]~
+  \begin{description}
+    \item [メソッド名] : starReview
+    \item [使用するライブラリ] : jQuery、Raty
+    \item [処理] : Ratyを読み込ませます。
+    raty()プロパティを呼び出します。
+  \end{description}
 
 \item[タブ切り替え]~\\
-検索画面において、別画面に遷移することなく検索項目を切り替えることができます。
-この機能を用いることで、検索項目を切り替える際にページを読み込む時間がなくなり、ユーザが検索したい項目をより早く選択することができます。
-JQueryより、removeClass関数とaddClass関数を呼び出すことで、タブ切り替えを実現します。
+\begin{description}
+\item メソッド：changTab
+\item ライブラリ：jQuery
+\item 処理
+\item Click()で処理を呼び出す
+\item Index()で対応する番号を取り出す
+\item その番号を対応するリストをeq()で探し、CSSを変更する
+\item 現在のselectクラスを削除し、新しいselectクラスを追加する
+\end{description}
 
-\item[説明画面出力(lightbox)]~\\
-詳しい説明を画像と説明文で説明する際、表示対象が出てきます。
-同じHTML上に表示したいものを隠しているので、使い過ぎは修正や更新時に混乱を招くかもしれませんが、ワンポイントな強調目的に便利です。
-画像とテキストを対応ファイルとしています。
-JavaScriptでleanModal()を呼び出すことで説明画面出力(lightbox)を実現します。
+\item[説明画面出力(lightbox)]~
+  \begin{description}
+    \item [メソッド名] : showInfo
+    \item [使用するライブラリ] : jQuery
+    \item [処理] : click()プロパティを使用し、処理が開始されます。
+    blur()を使用し、モーダルウィンドウが多重起動しないように設定します。
+    append()プロパティを使用し、HTMLの末尾にdivタグを生成します。
+    fadeIn()で先ほど生成したdivタグをフェードインさせます。
+    centeringModalSyncer()メソッドを作成し、表示位置を中央に設定します。
+  \end{description}
 
-\item[Topに戻るボタン]~\\
-ページを最上部まで戻す際、右下にボタンを配置させておき、初期段階ではボタンを非表示にしておきます。
-スクロールイベントを加え、スクール量を取得してからスクロールイベントが発生する位置を調整します。
-ready関数を呼び出すことでTopに戻るボタンを実現します。
+\item[Topに戻るボタン]~
+  \begin{description}
+    \item [メソッド名] : retrunTop
+    \item [使用するライブラリ] : jQuery
+    \item [処理] : click()プロパティを使用し、animate()プロパティを呼び出します。
+  \end{description}
+
 
 \item[十字チャートでの評価]~\\
-ユーザがお酒のレビューをする際、お酒の評価を十字チャートで決めることができます。
-この機能を用いることで、ユーザがお酒の評価を決めることができます。
-JavaScriptからレーダーチャートをcanvas要素に描画します。
+\begin{description}
+\item メソッド：crossReviw
+\item JavaScriptを使って図形を描くために使われる新しいHTML要素の一つであるcanvas要素を用います。
+以下はパスを使用して図形を描くための命令です
+\item beginPath() – パスを開始します
+\item closePath() – パスを閉じます(始点に向けて直線を描くことで図形を閉じます)
+\item stroke() – 線でパスを描きます
+\item moveTo(x, y) – パスの始点を移動します
+\item lineTo(x, y) – 現在の始点の座標(x, y)に向けて直線を描きます
+\item 項目をつけるのにfillText()を使用します
+\item 画像つけるのにimageオブジェクトを生成し、drowimageで画像の表示
+\item 引数：レビューの平均値を取ってくる
+\item 出力：レビューグラフを表示
+\end{description}
+
+\item[レーダーチャート]~\\
+\begin{description}
+\item メソッド：radarCloss
+\item ライブラリ：radar.js
+\item 処理
+\item Onloadでページが呼び出された時に処理が行われるようにする
+\item New html5jp.graph.radar()を変数に格納する
+\item 配列を作成し、最初の要素に項目名と数値を格納した配列として定義する
+\item オブジェクトを作成し、aCapプロパティで項目を指定する
+\item Drawで要素と数値を引数にし、グラフを作成
+\item 引数：レビューの平均値を取ってくる
+\item 出力：レビューグラフを表示
+\end{description}
 
 \end{description}
 
@@ -169,17 +309,17 @@ JavaScriptからレーダーチャートをcanvas要素に描画します。
 \multirow{2}{*}{お酒（レビュー）} & \multirow{2}{*}{/:drink\_name/review}
 & GET & \\\cline{3-3}
  & & POST & \\\hline
-\multirow{2}{*}{店舗（詳細）} & \multirow{2}{*}{/:store\_name}
+\multirow{2}{*}{店舗（詳細）} & \multirow{2}{*}{/store/:store\_name}
 & GET & \multirow{4}{*}{Storesコントローラ} \\\cline{3-3}
  & & POST &  \\\cline{1-3}
-\multirow{2}{*}{店舗（レビュー）}& \multirow{2}{*}{/:store\_name/review}
+\multirow{2}{*}{店舗（レビュー）}& \multirow{2}{*}{/store/:store\_name/review}
 & GET &  \\\cline{3-3}
  & & POST &\\\hline
 検索（観光地等） & /resort?検索条件 & GET & Resortsコントローラ \\\hline
-\multirow{2}{*}{ユーザ登録} & \multirow{2}{*}{/registration\_user}
+\multirow{2}{*}{ユーザ登録} & \multirow{2}{*}{/user}
 & GET & \multirow{12}{*}{Userコントローラ} \\\cline{3-3}
  & & POST & \\\cline{1-3}
- \multirow{2}{*}{ログイン（ユーザ）} & \multirow{2}{*}{/login\_user}
+ \multirow{2}{*}{ログイン（ユーザ）} & \multirow{2}{*}{/login}
  & GET & \\\cline{3-3}
  & & POST & \\\cline{1-3}
 マイページ（トップ） & /:user\_name
@@ -194,22 +334,22 @@ JavaScriptからレーダーチャートをcanvas要素に描画します。
 & GET & \\\cline{3-3}
  & & POST & \\\cline{3-3}
  & & DELETE & \\\hline
- \multirow{2}{*}{店舗登録申請} & \multirow{2}{*}{/store/request}
+ \multirow{2}{*}{店舗登録申請} & \multirow{2}{*}{/omise/request}
  & GET & \multirow{13}{*}{Storeコントローラ} \\\cline{3-3}
   & & POST &\\\cline{1-3}
- \multirow{2}{*}{店舗登録} & \multirow{2}{*}{/store/registration}
+ \multirow{2}{*}{店舗登録} & \multirow{2}{*}{/omise}
  & GET &\\\cline{3-3}
   & & POST &\\\cline{1-3}
- \multirow{2}{*}{ログイン（店舗）} & \multirow{2}{*}{/login\_store}
+ \multirow{2}{*}{ログイン（店舗）} & \multirow{2}{*}{/omise/login}
  & GET & \\\cline{3-3}
   & & POST & \\\cline{1-3}
-\multirow{3}{*}{店舗マイページ（編集）}& \multirow{3}{*}{/store/:store\_name}
+\multirow{3}{*}{店舗マイページ（編集）}& \multirow{3}{*}{/omise/:store\_name}
 & GET & \\\cline{3-3}
  & & POST & \\\cline{3-3}
  & & DELETE & \\\cline{1-3}
-店舗マイページ（レビュー） & /store/:store\_name/review
+店舗マイページ（レビュー） & /omise/:store\_name/reviews
 & GET & \\\cline{1-3}
-\multirow{3}{*}{店舗マイページ（設定）} & \multirow{3}{*}{/store/:store\_name/config}
+\multirow{3}{*}{店舗マイページ（設定）} & \multirow{3}{*}{/omise/:store\_name/config}
 & GET & \\\cline{3-3}
  & & POST & \\\cline{3-3}
  & & DELETE & \\\hline
@@ -247,26 +387,66 @@ Resorts & 観光地に関するコントローラです。 \\\hline
 \begin{center}
 \begin{tabular}{|l|l|l|p{5cm}|}\hline
 モデル名 & \multicolumn{2}{|l|}{リレーション} & 詳細 \\\hline\hline
-\multirow{2}{*}{User} & Review & 1:N & \multirow{2}{*}{ユーザに関するモデルです。}\\\cline{2-3}
- & Favorite & 1:N & \\\hline
-\multirow{4}{*}{Store} & Drink & N:M & \multirow{4}{*}{店舗に関するモデルです。} \\\cline{2-3}
+\multirow{4}{*}{User} & Store & N:M & \multirow{4}{*}{ユーザに関するモデルです。}\\\cline{2-3}
+ & Drink & N:M & \\\cline{2-3}
+ & StoreReview & 1:N & \\\cline{2-3}
+ & DrinkReview & 1:N & \\\hline
+\multirow{3}{*}{Store} & User & N:M & \multirow{4}{*}{店舗に関するモデルです。} \\\cline{2-3}
+ & Drink & N:M & \\\cline{2-3}
  & Dish & N:M & \\\cline{2-3}
- & Review & 1:N & \\\cline{2-3}
- & Favorite & 1:N & \\\hline
-\multirow{5}{*}{Drink} & Store & N:M & \multirow{5}{*}{お酒に関するモデルです。} \\\cline{2-3}
+ & StoreReview & 1:N & \\\hline
+\multirow{5}{*}{Drink} & User & N:M & \multirow{5}{*}{お酒に関するモデルです。} \\\cline{2-3}
+ & Store & N:M & \\\cline{2-3}
  & Brewer & N:1 & \\\cline{2-3}
  & Alcoholic & N:1 & \\\cline{2-3}
- & Review & 1:N & \\\cline{2-3}
- & Favorite & 1:N & \\\hline
+ & DrinkReview & 1:N & \\\hline
 \multirow{2}{*}{Dish} & Store & N:M & \multirow{2}{*}{料理に関するモデルです。} \\\cline{2-3}
  & Ingredient & N:M & \\\hline
 Ingredient & Dish & N:M & 食材に関するモデルです。 \\\hline
 Brewer & Drink & 1:N & 酒蔵に関するモデルです。 \\\hline
 Alcoholic & Drink & 1:N & 酒類に関するモデルです。 \\\hline
-\multirow{3}{*}{Review} & User & N:1 & \multirow{3}{*}{レビューに関するモデルです。} \\\cline{2-3}
- & Store & N:1 & \\\cline{2-3}
+\multirow{2}{*}{StoreReview} & User & N:1 & \multirow{2}{*}{店舗のレビューに関するモデルです。} \\\cline{2-3}
+ & Store & N:1 & \\\hline
+\multirow{2}{*}{DrinkReview} & User & N:1
+\multirow{2}{*}{お酒のレビューに関するモデルです。} \\\cline{2-3}
  & Drink & N:1 & \\\hline
 Resort & & & 観光地に関するモデルです。 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{ビュー}
+本システムで作成し、使用するビューは表\ref{view}の通りです。
+
+\begin{table}[!htbp]
+\caption{ビュー一覧}
+\label{view}
+\small
+\begin{center}
+\begin{tabular}{|l|l|p{4cm}|}\hline
+ビュー名 & ルーティング & 詳細\\\hline\hline
+indexes/index.html.erb & / & トップページです。 \\\hline
+\multirow{4}{*}{indexes/search.html.erb} & /drink?検索条件 & \multirow{4}{*}{検索結果ページです。} \\\cline{2-2}
+& /food?検索条件 & \\\cline{2-2}
+& /store?検索条件 & \\\cline{2-2}
+& /resort?検索条件 & \\\hline
+drinks/show.html.erb & /:drink\_name & お酒の詳細ページです。\\\hline
+drinks/review.html.erb & /:drink\_name/reviews & お酒のレビューページです。 \\\hline
+stores/show.html.erb & /store/:store\_name & 店舗の詳細ページです。 \\\hline
+stores/review.html.erb & /store/:store\_name/reviews & 店舗のレビューページです。 \\\hline
+users/registration.html.erb & /user & ユーザ用の登録ページです。 \\\hline
+\multirow{2}{*}{users/login.html.erb} & \multirow{2}{*}{/login} & ユーザ用のログインページです。 \\\hline
+\multirow{2}{*}{users/index.html.erb} & \multirow{2}{*}{/:user\_name} & ユーザのマイページのトップページです。 \\\hline
+\multirow{2}{*}{users/favorite.html.erb}  & \multirow{2}{*}{/:user\_name/favorites} & ユーザのマイページのお気に入りページです。 \\\hline
+\multirow{2}{*}{users/review.html.erb} & \multirow{2}{*}{/:user\_name/reviews} & ユーザのマイページのレビューページです。 \\\hline
+\multirow{2}{*}{users/config.html.erb} & \multirow{2}{*}{/:user\_name/config} & ユーザのマイページの詳細設定用ページです。 \\\hline
+stores/request.html.erb & /omise/request & 店舗の登録申請ページです。 \\\hline
+stores/registration.html.erb & /omise & 店舗用の登録ページです。 \\\hline
+stores/login.html.erb & /omise/login & 店舗用のログインページです。\\\hline
+\multirow{2}{*}{stores/index.html.erb} & \multirow{2}{*}{/omise/:store\_name} & 店舗のマイページのトップページです。 \\\hline
+\multirow{2}{*}{stores/review.html.erb} & \multirow{2}{*}{/omise/:store\_name/reviews} & 店舗のマイページのレビューページです。 \\\hline
+\multirow{2}{*}{stores/config.html.erb} & \multirow{2}{*}{/omise/:store\_name/config} & 店舗のマイページの詳細設定用ページです。 \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -530,5 +710,20 @@ detail & text & \\\hline
 \end{tabular}
 \end{center}
 \end{table}
+
+\section{アクションメソッドの定義}
+本システムで作成し、使用するコントローラのアクションメソッドは次の通りです。
+
+\subsection{Indexesコントローラ}
+
+
+\subsection{Userコントローラ}
+
+
+\subsection{Storeコントローラ}
+
+
+\subsection{Drinkコントローラ}
+
 
 \end{document}
