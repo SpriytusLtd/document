@@ -169,17 +169,17 @@ JavaScriptからレーダーチャートをcanvas要素に描画します。
 \multirow{2}{*}{お酒（レビュー）} & \multirow{2}{*}{/:drink\_name/review}
 & GET & \\\cline{3-3}
  & & POST & \\\hline
-\multirow{2}{*}{店舗（詳細）} & \multirow{2}{*}{/:store\_name}
+\multirow{2}{*}{店舗（詳細）} & \multirow{2}{*}{/store/:store\_name}
 & GET & \multirow{4}{*}{Storesコントローラ} \\\cline{3-3}
  & & POST &  \\\cline{1-3}
-\multirow{2}{*}{店舗（レビュー）}& \multirow{2}{*}{/:store\_name/review}
+\multirow{2}{*}{店舗（レビュー）}& \multirow{2}{*}{/store/:store\_name/review}
 & GET &  \\\cline{3-3}
  & & POST &\\\hline
 検索（観光地等） & /resort?検索条件 & GET & Resortsコントローラ \\\hline
-\multirow{2}{*}{ユーザ登録} & /user/new
+\multirow{2}{*}{ユーザ登録} & \multirow{2}{*}{/user}
 & GET & \multirow{12}{*}{Userコントローラ} \\\cline{3-3}
- & /user/create & POST & \\\cline{1-3}
- \multirow{2}{*}{ログイン（ユーザ）} & \multirow{2}{*}{/login\_user}
+ & & POST & \\\cline{1-3}
+ \multirow{2}{*}{ログイン（ユーザ）} & \multirow{2}{*}{/login}
  & GET & \\\cline{3-3}
  & & POST & \\\cline{1-3}
 マイページ（トップ） & /:user\_name
@@ -194,22 +194,22 @@ JavaScriptからレーダーチャートをcanvas要素に描画します。
 & GET & \\\cline{3-3}
  & & POST & \\\cline{3-3}
  & & DELETE & \\\hline
- \multirow{2}{*}{店舗登録申請} & \multirow{2}{*}{/store/request}
+ \multirow{2}{*}{店舗登録申請} & \multirow{2}{*}{/omise/request}
  & GET & \multirow{13}{*}{Storeコントローラ} \\\cline{3-3}
   & & POST &\\\cline{1-3}
- \multirow{2}{*}{店舗登録} & /store/new
+ \multirow{2}{*}{店舗登録} & /omise/new
  & GET &\\\cline{3-3}
-  & /store/create & POST &\\\cline{1-3}
- \multirow{2}{*}{ログイン（店舗）} & \multirow{2}{*}{/login\_store}
+  & /omise/create & POST &\\\cline{1-3}
+ \multirow{2}{*}{ログイン（店舗）} & \multirow{2}{*}{/omise/login}
  & GET & \\\cline{3-3}
   & & POST & \\\cline{1-3}
-\multirow{3}{*}{店舗マイページ（編集）}& \multirow{3}{*}{/store/:store\_name}
+\multirow{3}{*}{店舗マイページ（編集）}& \multirow{3}{*}{/omise/:store\_name}
 & GET & \\\cline{3-3}
  & & POST & \\\cline{3-3}
  & & DELETE & \\\cline{1-3}
-店舗マイページ（レビュー） & /store/:store\_name/review
+店舗マイページ（レビュー） & /omise/:store\_name/review
 & GET & \\\cline{1-3}
-\multirow{3}{*}{店舗マイページ（設定）} & \multirow{3}{*}{/store/:store\_name/config}
+\multirow{3}{*}{店舗マイページ（設定）} & \multirow{3}{*}{/omise/:store\_name/config}
 & GET & \\\cline{3-3}
  & & POST & \\\cline{3-3}
  & & DELETE & \\\hline
@@ -288,24 +288,23 @@ Resort & & & 観光地に関するモデルです。 \\\hline
 \begin{tabular}{|l|l|p{4cm}|}\hline
 ビュー名 & ルーティング & 詳細\\\hline\hline
 indexes/index.html.erb & / & トップページです。 \\\hline
-\multirow{5}{*}{indexes/search.html.erb} & /drink?検索条件 & \multirow{5}{*}{検索結果ページです。} \\\cline{2-2}
+\multirow{4}{*}{indexes/search.html.erb} & /drink?検索条件 & \multirow{4}{*}{検索結果ページです。} \\\cline{2-2}
 & /food?検索条件 & \\\cline{2-2}
 & /store?検索条件 & \\\cline{2-2}
-& /resort?検索条件 & \\\cline{2-2}
-& /search?検索語句 & \\\hline
+& /resort?検索条件 & \\\hline
 drinks/show.html.erb & /:drink\_name & お酒の詳細ページです。\\\hline
 drinks/review.html.erb & /:drink\_name/review & お酒のレビューページです。 \\\hline
-stores/show.html.erb & /:store\_name & 店舗の詳細ページです。 \\\hline
-stores/review.html.erb & /:store\_name/review & 店舗のレビューページです。 \\\hline
-users/registration.html.erb & /registration\_user & ユーザ用の登録ページです。 \\\hline
-\multirow{2}{*}{users/login.html.erb} & \multirow{2}{*}{/login\_user} & ユーザ用のログインページです。 \\\hline
+stores/show.html.erb & /store/:store\_name & 店舗の詳細ページです。 \\\hline
+stores/review.html.erb & /store/:store\_name/review & 店舗のレビューページです。 \\\hline
+users/registration.html.erb & /user & ユーザ用の登録ページです。 \\\hline
+\multirow{2}{*}{users/login.html.erb} & \multirow{2}{*}{/login} & ユーザ用のログインページです。 \\\hline
 \multirow{2}{*}{users/index.html.erb} & \multirow{2}{*}{/:user\_name} & ユーザのマイページのトップページです。 \\\hline
 \multirow{2}{*}{users/favorite.html.erb}  & \multirow{2}{*}{/:user\_name/favorites} & ユーザのマイページのお気に入りページです。 \\\hline
 \multirow{2}{*}{users/review.html.erb} & \multirow{2}{*}{/:user\_name/reviews} & ユーザのマイページのレビューページです。 \\\hline
 \multirow{2}{*}{users/config.html.erb} & \multirow{2}{*}{/:user\_name/config} & ユーザのマイページの詳細設定用ページです。 \\\hline
-stores/request.html.erb & /store/request & 店舗の登録申請ページです。 \\\hline
-stores/registration.html.erb & /store/registration & 店舗用の登録ページです。 \\\hline
-stores/login.html.erb & /login\_store & 店舗用のログインページです。\\\hline
+stores/request.html.erb & /omise/request & 店舗の登録申請ページです。 \\\hline
+stores/registration.html.erb & /omise & 店舗用の登録ページです。 \\\hline
+stores/login.html.erb & /omise/login & 店舗用のログインページです。\\\hline
 \multirow{2}{*}{stores/index.html.erb} & \multirow{2}{*}{/store/:store\_name} & 店舗のマイページのトップページです。 \\\hline
 \multirow{2}{*}{stores/review.html.erb} & \multirow{2}{*}{/store/:store\_name/review} & 店舗のマイページのレビューページです。 \\\hline
 \multirow{2}{*}{stores/config.html.erb} & \multirow{2}{*}{/store/:store\_name/config} & 店舗のマイページの詳細設定用ページです。 \\\hline
