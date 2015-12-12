@@ -387,27 +387,28 @@ Resorts & 観光地に関するコントローラです。 \\\hline
 \begin{center}
 \begin{tabular}{|l|l|l|p{5cm}|}\hline
 モデル名 & \multicolumn{2}{|l|}{リレーション} & 詳細 \\\hline\hline
-\multirow{2}{*}{User} & Review & 1:N & \multirow{2}{*}{ユーザに関するモデルです。}\\\cline{2-3}
- & Favorite & 1:N & \\\hline
-\multirow{4}{*}{Store} & Drink & N:M & \multirow{4}{*}{店舗に関するモデルです。} \\\cline{2-3}
+\multirow{4}{*}{User} & Store & N:M & \multirow{4}{*}{ユーザに関するモデルです。}\\\cline{2-3}
+ & Drink & N:M & \\\cline{2-3}
+ & StoreReview & 1:N & \\\cline{2-3}
+ & DrinkReview & 1:N & \\\hline
+\multirow{3}{*}{Store} & User & N:M & \multirow{4}{*}{店舗に関するモデルです。} \\\cline{2-3}
+ & Drink & N:M & \\\cline{2-3}
  & Dish & N:M & \\\cline{2-3}
- & Review & 1:N & \\\cline{2-3}
- & Favorite & 1:N & \\\hline
-\multirow{5}{*}{Drink} & Store & N:M & \multirow{5}{*}{お酒に関するモデルです。} \\\cline{2-3}
+ & StoreReview & 1:N & \\\hline
+\multirow{5}{*}{Drink} & User & N:M & \multirow{5}{*}{お酒に関するモデルです。} \\\cline{2-3}
+ & Store & N:M & \\\cline{2-3}
  & Brewer & N:1 & \\\cline{2-3}
  & Alcoholic & N:1 & \\\cline{2-3}
- & Review & 1:N & \\\cline{2-3}
- & Favorite & 1:N & \\\hline
+ & DrinkReview & 1:N & \\\hline
 \multirow{2}{*}{Dish} & Store & N:M & \multirow{2}{*}{料理に関するモデルです。} \\\cline{2-3}
  & Ingredient & N:M & \\\hline
 Ingredient & Dish & N:M & 食材に関するモデルです。 \\\hline
 Brewer & Drink & 1:N & 酒蔵に関するモデルです。 \\\hline
 Alcoholic & Drink & 1:N & 酒類に関するモデルです。 \\\hline
-\multirow{3}{*}{Review} & User & N:1 & \multirow{3}{*}{レビューに関するモデルです。} \\\cline{2-3}
- & Store & N:1 & \\\cline{2-3}
- & Drink & N:1 & \\\hline
-\multirow{3}{*}{Favorite} & User & N:1 & \multirow{3}{*}{お気に入りに関するモデルです。} \\\cline{2-3}
- & Store & N:1 & \\\cline{2-3}
+\multirow{2}{*}{StoreReview} & User & N:1 & \multirow{2}{*}{店舗のレビューに関するモデルです。} \\\cline{2-3}
+ & Store & N:1 & \\\hline
+\multirow{2}{*}{DrinkReview} & User & N:1
+\multirow{2}{*}{お酒のレビューに関するモデルです。} \\\cline{2-3}
  & Drink & N:1 & \\\hline
 Resort & & & 観光地に関するモデルです。 \\\hline
 \end{tabular}
