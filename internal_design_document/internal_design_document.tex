@@ -298,7 +298,8 @@ Resort & & & 観光地に関するモデルです。 \\\hline
 本システムで作成し、使用するモデルの定義は次の通りです。
 
 \subsection{User}
-Userモデルの定義は、表\ref{user}の通りです。
+Userモデルは、Reviewモデル、Favoriteモデルと1:Nの関係にあります。
+Userモデルのカラムは、表\ref{user}の通りです。
 
 \begin{table}[!htbp]
 \caption{Userモデルの定義}
@@ -315,7 +316,9 @@ password & string & $\circ$ \\\hline
 \end{table}
 
 \subsection{Store}
-Storeモデルの定義は、表\ref{store}の通りです。
+Storeモデルは、Reviewモデル、Favoriteモデルと1:Nの関係にあります。
+また、Drinkモデル、DishモデルとN:Mの関係にあります。
+Storeモデルのカラムは、表\ref{store}の通りです。
 
 \begin{table}[!htbp]
 \caption{Storeモデルの定義}
