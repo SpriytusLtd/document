@@ -298,7 +298,8 @@ Resort & & & 観光地に関するモデルです。 \\\hline
 本システムで作成し、使用するモデルの定義は次の通りです。
 
 \subsection{User}
-Userモデルは、Reviewモデル、Favoriteモデルと1:Nの関係にあります。
+Userモデルは、StoreReviewモデル、DrinkReviewモデルと1:Nの関係にあります。
+また、Storeモデル、DrinkモデルとN:Mの関係にあります。
 Userモデルのカラムは、表\ref{user}の通りです。
 
 \begin{table}[!htbp]
@@ -308,16 +309,16 @@ Userモデルのカラムは、表\ref{user}の通りです。
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
-name & text & $\circ$ \\\hline
-email & string & $\circ$ \\\hline
-password & string & $\circ$ \\\hline
+name & text & \\\hline
+email & string & \\\hline
+password & string & \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \subsection{Store}
-Storeモデルは、Reviewモデル、Favoriteモデルと1:Nの関係にあります。
-また、Drinkモデル、DishモデルとN:Mの関係にあります。
+Storeモデルは、StoreReviewモデルと1:Nの関係にあります。
+また、Userモデル、Drinkモデル、DishモデルとN:Mの関係にあります。
 Storeモデルのカラムは、表\ref{store}の通りです。
 
 \begin{table}[!htbp]
@@ -327,19 +328,22 @@ Storeモデルのカラムは、表\ref{store}の通りです。
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
-name & text & $\circ$ \\\hline
-email & string & $\circ$ \\\hline
-password & string & $\circ$ \\\hline
-address & text & $\circ$ \\\hline
-phone\_number & string & $\circ$ \\\hline
+name & text & \\\hline
+email & string & \\\hline
+password & string & \\\hline
+address & text & \\\hline
+phone\_number & string & \\\hline
 budget & integer & $\circ$ \\\hline
-detail & text & $\circ$ \\\hline
+detail & text & \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \subsection{Drink}
-Drinkモデルの定義は、表\ref{drink}の通りです。
+Drinkモデルは、DrinkReviewモデルと1:Nの関係にあります。
+また、Brewerモデル、AlcoholicモデルとN:1の関係にあります。
+さらに、Userモデル、StoreモデルとN:Mの関係にあります。
+Drinkモデルのカラムは、表\ref{drink}の通りです。
 
 \begin{table}[!htbp]
 \caption{Drinkモデルの定義}
@@ -348,7 +352,7 @@ Drinkモデルの定義は、表\ref{drink}の通りです。
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
-name & text & $\circ$ \\\hline
+name & text & \\\hline
 alcohol & integer & $\circ$ \\\hline
 detail & text & $\circ$ \\\hline
 alcoholic\_id & integer & $\circ$ \\\hline
@@ -358,7 +362,8 @@ brewer\_id & integer & $\circ$ \\\hline
 \end{table}
 
 \subsection{Dish}
-Dishモデルの定義は、表\ref{dish}の通りです。
+Dishモデルは、Storeモデル、IngredientモデルとN:Mの関係にあります。
+Dishモデルのカラムは、表\ref{dish}の通りです。
 
 \begin{table}[!htbp]
 \caption{Dishモデルの定義}
@@ -367,15 +372,16 @@ Dishモデルの定義は、表\ref{dish}の通りです。
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
-name & text & $\circ$ \\\hline
-local\_dishes & boolean & $\circ$ \\\hline
+name & text & \\\hline
+local\_dishes & boolean & \\\hline
 detail & text & $\circ$ \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \subsection{Ingredient}
-Ingredientモデルの定義は、表\ref{ingredient}の通りです。
+Ingredientモデルは、DishモデルとN:Mの関係にあります。
+Ingredientモデルのカラムは、表\ref{ingredient}の通りです。
 
 \begin{table}[!htbp]
 \caption{Ingredientモデルの定義}
@@ -384,13 +390,14 @@ Ingredientモデルの定義は、表\ref{ingredient}の通りです。
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
-name & text & $\circ$ \\\hline
+name & text & \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \subsection{Brewer}
-Brewerモデルの定義は、表\ref{brewer}の通りです。
+Brewerモデルは、Drinkモデルと1:Nの関係にあります。
+Brewerモデルのカラムは、表\ref{brewer}の通りです。
 
 \begin{table}[!htbp]
 \caption{Brewerモデルの定義}
@@ -399,13 +406,14 @@ Brewerモデルの定義は、表\ref{brewer}の通りです。
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
-name & text & $\circ$ \\\hline
+name & text & \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \subsection{Alcoholic}
-Alcoholicモデルの定義は、表\ref{alcoholic}の通りです。
+Alcoholicモデルは、Drinkモデルと1:Nの関係があります。
+Alcoholicモデルのカラムは、表\ref{alcoholic}の通りです。
 
 \begin{table}[!htbp]
 \caption{Alcoholicモデルの定義}
@@ -414,9 +422,9 @@ Alcoholicモデルの定義は、表\ref{alcoholic}の通りです。
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
-name & text & $\circ$ \\\hline
-item1 & text & $\circ$ \\\hline
-item2 & text & $\circ$ \\\hline
+name & text &  \\\hline
+item1 & text & \\\hline
+item2 & text & \\\hline
 item3 & text & $\circ$ \\\hline
 item4 & text & $\circ$ \\\hline
 item5 & text & $\circ$ \\\hline
@@ -425,16 +433,46 @@ item6 & text & $\circ$ \\\hline
 \end{center}
 \end{table}
 
-\subsection{Review}
-Reviewモデルの定義は、表\ref{review}の通りです。
+\subsection{StoreReview}
+StoreReviewモデルは、Userモデル、StoreモデルとN:1の関係にあります。
+StoreReviewモデルのカラムは、表\ref{store_review}の通りです。
+StoreReviewモデルの主キーは、user\_idとstore\_idです。
 
 \begin{table}[!htbp]
-\caption{Reviewモデルの定義}
-\label{review}
+\caption{StoreReviewモデルの定義}
+\label{store_review}
 \small
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
+user\_id & integer & \\\hline
+store\_id & integer & \\\hline
+body & text & \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{DrinkReview}
+DrinkReviewモデルは、Userモデル、DrinkモデルとN:1の関係にあります。
+DrinkReviewモデルのカラムは、表\ref{drink_review}の通りです。
+DrinkReviewモデルの主キーは、user\_idとdrink\_idです。
+
+\begin{table}[!htbp]
+\caption{DrinkReviewモデルの定義}
+\label{drink_review}
+\small
+\begin{center}
+\begin{tabular}{|l|l|c|}\hline
+カラム名 & 型 & null \\\hline\hline
+user\_id & integer & \\\hline
+drink\_id & integer & \\\hline
+body & text & \\\hline
+param1 & integer & \\\hline
+param2 & integer & \\\hline
+param3 & integer & $\circ$ \\\hline
+param4 & integer & $\circ$ \\\hline
+param5 & integer & $\circ$ \\\hline
+param6 & integer & $\circ$ \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -449,9 +487,9 @@ Resortモデルの定義は、表\ref{resort}の通りです。
 \begin{center}
 \begin{tabular}{|l|l|c|}\hline
 カラム名 & 型 & null \\\hline\hline
-name & text & $\circ$ \\\hline
+name & text & \\\hline
 address & text & $\circ$ \\\hline
-detail & text & $\circ$ \\\hline
+detail & text & \\\hline
 \end{tabular}
 \end{center}
 \end{table}
