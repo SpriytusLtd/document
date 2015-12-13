@@ -479,8 +479,127 @@ stores/login.html.erb & /omise/login & 店舗用のログインページです�
 
 
 \subsection{Userコントローラ}
+\begin{description}
+\item [メソッド名 :] new
+\item [入力 :] 登録情報
+\item [出力 :] 登録ページ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item 登録情報を入力する。
+ \item 登録情報が確認されたら登録ページに戻る。
+ \end{enumerate}
+\end{description}
 
+\begin{description}
+\item [メソッド名 :] create
+\item [入力 :] 登録情報
+\item [出力 :] 登録ページ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item 登録情報を入力する。
+ \item 登録情報をサーバに送信する。
+ \item 登録情報が確認されたら登録ページに戻る。
+ \end{enumerate}
+\end{description}
 
+\begin{description}
+\item [メソッド名 :] login
+\item [入力 :] メールアドレス、パスワード
+\item [出力 :] ユーザ用のログインページ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item ユーザのメールアドレスとパスワードを入力する。
+ \item 入力内容が確認されるとユーザ用のログインページに戻る。
+ \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] index
+\item [入力 :] なし
+\item [出力 :] マイページトップ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item　マイページトップを表示させる。
+ \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] favorites
+\item [入力 :] なし
+\item [出力 :] ユーザの登録したお気に入り一覧
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item お気に入りの一覧を表示させる。
+ \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] delete_favorite
+\item [入力 :] 削除対象パラメータ
+\item [出力 :] 200:OK
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item 削除方法を判断する。
+ \item 削除対象パラメータを入力し削除結果を抽出する。
+ \item 削除完了ページを表示する。
+ \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] reviews
+\item [入力 :] なし
+\item [出力 :] ユーザの投稿したレビュー一覧
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item レビュー一覧を表示させる。
+ \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] delete_reviews
+\item [入力 :] 削除対象パラメータ
+\item [出力 :] 200:OK
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item 削除方法を判断する。
+ \item 削除パラメータを入力し削除結果を抽出する。
+ \item 削除完了ページを表示する
+ \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] edit
+\item [入力 :] マイページ設定情報
+\item [出力 :] 設定詳細ページ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item マイページにおける編集する設定情報を入力する。
+ \item 設定情報が確認されたら設定詳細ページに戻る。
+ \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] update
+\item [入力 :] マイページ設定情報
+\item [出力 :] 設定詳細ページ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item マイページにおける更新する設定情報を入力する。
+ \item　設定情報が確認されたら設定詳細ページに戻る。
+ \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] delete
+\item [入力 :] 削除対象パラメータ
+\item [出力 :] 200:OK
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item 削除方法を判断する。
+ \item 削除対象パラメータを入力し、削除結果を抽出する。
+ \item 削除完了ページを表示する。
+ \end{enumerate}
+\end{description}
 \subsection{Storeコントローラ}
 
 
