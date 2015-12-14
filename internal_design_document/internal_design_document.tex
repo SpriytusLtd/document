@@ -735,8 +735,8 @@ detail & text & \\\hline
   \item [入力 :] 店の各種情報
   \item [出力 :]\mbox{}
   \begin{itemize}
-    \item 入力に不備があれば、同じ画面を出力します。
-    \item 入力に不備がなければ、登録完了画面を出力します。
+    \item 入力に不備があれば、同じ画面を出力
+    \item 入力に不備がなければ、登録完了画面を出力
   \end{itemize}
   \item [処理 :]\mbox{}
   \begin{enumerate}
@@ -747,11 +747,23 @@ detail & text & \\\hline
 
 \begin{description}
   \item [メソッド名 :] request
-  \item [入力 :]
-  \item [出力 :]
+  \item [入力 :]\mbox{}
+  \begin{itemize}
+    \item 店名
+    \item 住所
+    \item 電話番号
+    \item メールアドレス
+    \item パスワード
+  \end{itemize}
+  \item [出力 :]\mbox{}
+  \begin{itemize}
+    \item 入力に不備がなければ、店アカウントの登録要求完了画面を出力
+    \item 入力に不備があれば、不備のある部分を出力
+  \end{itemize}
   \item [処理 :]\mbox{}
   \begin{enumerate}
-    \item
+    \item パスワード以外の入力情報が既に使用されていないか調べます。
+    \item その店から登録要求があったことを記録します。
   \end{enumerate}
 \end{description}
 
