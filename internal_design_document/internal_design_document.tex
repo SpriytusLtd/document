@@ -182,7 +182,7 @@ CSSより、background-imageの切り替えを行うことで、ロールオー�
 \begin{itemize}
 \item ロゴ(クリックするとTopページに戻る)
 \item デザイン
-\item ページTopへ戻るボタン
+\item ページ最上部へ戻るボタン
 \end{itemize}
 
 \end{description}
@@ -298,10 +298,11 @@ CSSより、background-imageの切り替えを行うことで、ロールオー�
 \begin{center}
 \begin{tabular}{|l|l|l|p{4cm}|}\hline
 ページ内容 & ルーティング & HTTPメソッド & 対応するコントローラ\\\hline\hline
-トップページ & / & GET & \multirow{5}{*}{Indexesコントローラ} \\\cline{1-3}
+トップページ & / & GET & \multirow{6}{*}{Indexesコントローラ} \\\cline{1-3}
 検索（お酒） & /drink?検索条件 & GET & \\\cline{1-3}
 検索（食材） & /food?検索条件 & GET & \\\cline{1-3}
 検索（店舗） & /store?検索条件 & GET &  \\\cline{1-3}
+検索（観光地等） & /resort?検索条件 & GET & \\\cline{1-3}
 検索（語句） & /search?検索語句 & GET & \\\hline
 \multirow{2}{*}{お酒（詳細）} & \multirow{2}{*}{/:drink\_name}
 & GET & \multirow{4}{*}{Drinksコントローラ} \\\cline{3-3}
@@ -315,7 +316,6 @@ CSSより、background-imageの切り替えを行うことで、ロールオー�
 \multirow{2}{*}{店舗（レビュー）}& \multirow{2}{*}{/store/:store\_name/review}
 & GET &  \\\cline{3-3}
  & & POST &\\\hline
-検索（観光地等） & /resort?検索条件 & GET & Resortsコントローラ \\\hline
 \multirow{2}{*}{ユーザ登録} & \multirow{2}{*}{/user}
 & GET & \multirow{12}{*}{Userコントローラ} \\\cline{3-3}
  & & POST & \\\cline{1-3}
@@ -371,7 +371,6 @@ CSSより、background-imageの切り替えを行うことで、ロールオー�
 Users & ユーザに関するコントローラです。 \\\hline
 Stores & 店舗に関するコントローラです。 \\\hline
 Drinks & お酒に関するコントローラです。 \\\hline
-Resorts & 観光地に関するコントローラです。 \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -509,9 +508,9 @@ Storeモデルには、searchメソッドが存在します。
 \item [出力 :] 検索パラメータに合致するStoreのリスト
 \item [処理 :]\mbox{}
   \begin{enumerate}
-  \item 検索方法を判断する。
-  \item 検索パラメータを入力に検索結果を抽出する。
-  \item 検索結果をコントローラに返す。
+  \item 検索方法を判断します。
+  \item 検索パラメータを入力に検索結果を抽出します。
+  \item 検索結果をコントローラに返します。
   \end{enumerate}
 \end{description}
 
@@ -548,9 +547,9 @@ Drinkモデルには、searchメソッドが存在します。
 \item [出力 :] 検索パラメータに合致するDrinkのリスト
 \item [処理 :]\mbox{}
   \begin{enumerate}
-  \item 検索方法を判断する。
-  \item 検索パラメータを入力に検索結果を抽出する。
-  \item 検索結果をコントローラに返す。
+  \item 検索方法を判断します。
+  \item 検索パラメータを入力に検索結果を抽出します。
+  \item 検索結果をコントローラに返します。
   \end{enumerate}
 \end{description}
 
@@ -715,7 +714,29 @@ detail & text & \\\hline
 本システムで作成し、使用するコントローラのアクションメソッドは次の通りです。
 
 \subsection{Indexesコントローラ}
+Indexesコントローラのアクションは、次の通りです。
 
+\begin{description}
+\item [メソッド名 :] index
+\item [入力 :] なし
+\item [出力 :] トップページ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item トップページを出力します。
+  \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] search
+\item [入力 :] 検索パラメータ
+\item [出力 :] 検索結果ページ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item どのモデルを検索すればいいのか判断します。
+  \item 検索パラメータを入力にモデルのsearchメソッドを呼び出します。
+  \item 検索結果ページを出力します。
+  \end{enumerate}
+\end{description}
 
 \subsection{Userコントローラ}
 
