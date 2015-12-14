@@ -742,6 +742,55 @@ Indexesコントローラのアクションは、次の通りです。
 
 
 \subsection{Storeコントローラ}
+Storeコントローラのアクションは、次の通りです。
+
+\begin{description}
+\item [メソッド名：] show
+\item [入力：] 店舗ID
+\item [出力：] 店舗の詳細ページ
+\item [処理：]\mbox{}
+  \begin{enumerate}
+  \item 店舗IDを入力に、店舗情報を抽出します。
+  \item 店舗の詳細ページを出力します。
+  \end{enumerate}
+\end{description}
+​
+\begin{description}
+\item [メソッド名：] review
+\item [入力：] 店舗ID
+\item [出力：] 店舗のレビューページ
+\item [処理：]\mbox{}
+  \begin{enumerate}
+  \item 店舗IDを入力に、店舗のレビューを抽出します。
+  \item 店舗のレビューページを出力します。
+  \end{enumerate}
+\end{description}
+​
+\begin{description}
+\item [メソッド名：] review\_create
+\item [入力：] レビューパラメータ
+\item [出力：] 店舗のレビューページ
+\item [処理：]\mbox{}
+  \begin{enumerate}
+  \item レビューパラメータを入力に、レビューを保存します。
+  \item ページの更新を行います。
+  \end{enumerate}
+\end{description}
+​
+\begin{description}
+\item [メソッド名：] favorite\_add
+\item [入力：]
+  \begin{enumerate}
+    \item ユーザID
+    \item 店舗ID
+  \end{enumerate}
+\item [出力：] HTTPステータスコード 200
+\item [処理：] \mbox{}
+  \begin{enumerate}
+  \item HTTPステータスコード 200を出力します。
+  \item ページを更新します。
+　\end{enumerate}
+\end{description}
 
 \begin{description}
   \item [メソッド名 :] new
@@ -884,6 +933,54 @@ Indexesコントローラのアクションは、次の通りです。
 \end{description}
 
 \subsection{Drinkコントローラ}
+Drinkコントローラのアクションは、次の通りです。
 
+\begin{description}
+\item [メソッド名：] show
+\item [入力：] お酒ID
+\item [出力：] お酒の詳細ページ
+\item [処理：]\mbox{}
+  \begin{enumerate}
+  \item お酒のIDを入力に、お酒の詳細情報を抽出します。
+  \item お酒の詳細ページを出力します。
+  \end{enumerate}
+\end{description}
+​
+\begin{description}
+\item [メソッド名：] review
+\item [入力：] お酒ID
+\item [出力：] お酒のレビューページ
+\item [処理：]\mbox{}
+  \begin{enumerate}
+  \item お酒のIDを入力に、お酒のレビューを抽出します。
+  \item お酒のレビューページを出力します。
+  \end{enumerate}
+\end{description}
+​
+\begin{description}
+\item [メソッド名：] review\_create
+\item [入力：] レビューパラメータ
+\item [出力：] お酒のレビューのページ
+\item [処理：]\mbox{}
+  \begin{enumerate}
+  \item レビューパラメータを入力に、レビューを保存します。
+  \item ページの更新を行います。
+  \end{enumerate}
+\end{description}
+​
+\begin{description}
+\item [メソッド名：] favorite\_add
+\item [入力：]
+  \begin{enumerate}
+    \item ユーザID
+    \item 酒ID
+  \end{enumerate}
+\item [出力：] HTTPステータスコード 200
+\item [処理：] \mbox{}
+  \begin{enumerate}
+  \item HTTPステータスコード 200を出力します。
+  \item ページを更新します。
+　\end{enumerate}
+\end{description}
 
 \end{document}
