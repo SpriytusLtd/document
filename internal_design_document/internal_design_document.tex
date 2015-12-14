@@ -714,7 +714,29 @@ detail & text & \\\hline
 本システムで作成し、使用するコントローラのアクションメソッドは次の通りです。
 
 \subsection{Indexesコントローラ}
+Indexesコントローラのアクションは、次の通りです。
 
+\begin{description}
+\item [メソッド名 :] index
+\item [入力 :] なし
+\item [出力 :] トップページ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item トップページを出力します。
+  \end{enumerate}
+\end{description}
+
+\begin{description}
+\item [メソッド名 :] search
+\item [入力 :] 検索パラメータ
+\item [出力 :] 検索結果ページ
+\item [処理 :]\mbox{}
+  \begin{enumerate}
+  \item どのモデルを検索すればいいのか判断します。
+  \item 検索パラメータを入力にモデルのsearchメソッドを呼び出します。
+  \item 検索結果ページを出力します。
+  \end{enumerate}
+\end{description}
 
 \subsection{Userコントローラ}
 
