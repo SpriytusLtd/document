@@ -743,6 +743,145 @@ Indexesコントローラのアクションは、次の通りです。
 
 \subsection{Storeコントローラ}
 
+\begin{description}
+  \item [メソッド名 :] new
+  \item [入力 :] なし
+  \item [出力 :] 店の新規登録画面
+  \item [処理 :]
+  なし
+\end{description}
+
+\begin{description}
+  \item [メソッド名 :] create
+  \item [入力 :] 店の各種詳細情報
+  \item [出力 :]\mbox{}
+  \begin{itemize}
+    \item 入力に不備があれば、同じ画面
+    \item 入力に不備がなければ、登録完了画面
+  \end{itemize}
+  \item [処理 :]\mbox{}
+  \begin{enumerate}
+    \item 登録情報の不備の有無を調べます。
+    \item 不備の有無によって、出力する画面を指定します。
+  \end{enumerate}
+\end{description}
+
+\begin{description}
+  \item [メソッド名 :] request
+  \item [入力 :]\mbox{}
+  \begin{itemize}
+    \item 店名
+    \item 住所
+    \item 電話番号
+    \item メールアドレス
+    \item パスワード
+  \end{itemize}
+  \item [出力 :]\mbox{}
+  \begin{itemize}
+    \item 入力に不備がなければ、店アカウントの登録要求完了画面
+    \item 入力に不備があれば、不備のある部分を提示
+  \end{itemize}
+  \item [処理 :]\mbox{}
+  \begin{enumerate}
+    \item パスワード以外の入力情報が既に使用されていないか調べます。
+    \item その店から登録要求があったことを記録します。
+  \end{enumerate}
+\end{description}
+
+\begin{description}
+  \item [メソッド名 :] login
+  \item [入力 :]\mbox{}
+  \begin{itemize}
+    \item メールアドレス
+    \item パスワード
+  \end{itemize}
+  \item [出力 :] 店のログインページ
+  \item [処理 :] なし
+\end{description}
+
+\begin{description}
+  \item [メソッド名 :] edit
+  \item [入力 :] 店アカウントのセッション情報
+  \item [出力 :] 店情報を編集する画面
+  \item [処理 :]\mbox{}
+  \begin{enumerate}
+    \item セッション情報からStoreIDを取得します。
+    \item StoreテーブルからStoreIDで店を検索し、店情報を取得します。
+  \end{enumerate}
+\end{description}
+
+\begin{description}
+  \item [メソッド名 :] update
+  \item [入力 :]\mbox{}
+  \begin{itemize}
+    \item 店アカウントのセッション情報
+    \item 更新する店情報（住所、電話番号、店の説明詳細など）
+  \end{itemize}
+  \item [出力 :]\mbox{}
+  \begin{itemize}
+    \item 入力の店情報に不備があれば、その旨
+    \item 不備がなければ、変更完了画面
+  \end{itemize}
+  \item [処理 :]\mbox{}
+  \begin{enumerate}
+    \item 入力に不備がないか検査します。
+    \item なければDB内の店情報を更新し、あれば何も行いません。
+  \end{enumerate}
+\end{description}
+
+\begin{description}
+  \item [メソッド名 :] review\_for\_store
+  \item [入力 :] 店アカウントのセッション情報
+  \item [出力 :] 店のレビュー一覧
+  \item [処理 :]\mbox{}
+  \begin{enumerate}
+    \item セッション情報からstoreIDを取得します。
+    \item storeテーブルから先に取得したstoreIDで検索し、店情報を取得します。
+    \item 取得した店情報からレビュー一覧を取得します。
+  \end{enumerate}
+\end{description}
+
+\begin{description}
+  \item [メソッド名 :] edit\_config
+  \item [入力 :] 店アカウントのセッション情報
+  \item [出力 :] 店アカウントの設定編集画面
+  \item [処理 :]\mbox{}
+  \begin{enumerate}
+    \item セッション情報からstoreIDを取得します。
+    \item storeテーブルからStoreIDで検索し、店情報を取得します。
+  \end{enumerate}
+\end{description}
+
+\begin{description}
+  \item [メソッド名 :] update\_config
+  \item [入力 :]\mbox{}
+  \begin{itemize}
+    \item 店アカウントのセッション情報
+    \item 変更するアカウント設定情報
+  \end{itemize}
+  \item [出力 :]\mbox{}
+  \begin{itemize}
+    \item 変更するアカウント設定情報に不備があれば、同じ画面
+    \item 不備がなければ、設定の変更完了画面
+  \end{itemize}
+  \item [処理 :]\mbox{}
+  \begin{enumerate}
+    \item セッション情報からstoreIDを取得します。
+    \item storeテーブルから先に取得したstoreIDで検索し、店情報を取得します。
+    \item 変更する設定情報に不備がないかを検査し、なければDBの店情報を更新し、あれば何も行いません。
+  \end{enumerate}
+\end{description}
+
+\begin{description}
+  \item [メソッド名 :] delete
+  \item [入力 :] 店アカウントのセッション情報
+  \item [出力 :] 店アカウントの削除申請完了画面
+  \item [処理 :]\mbox{}
+  \begin{enumerate}
+    \item セッション情報からstoreIDを取得します。
+    \item storeIDで指定された店から削除申請があったことを記録します。
+  \end{enumerate}
+\end{description}
 
 \subsection{Drinkコントローラ}
 
