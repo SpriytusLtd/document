@@ -303,40 +303,40 @@ CSSより、background-imageの切り替えを行うことで、ロールオー�
 \begin{center}
 \begin{tabular}{|l|l|l|p{4cm}|}\hline
 ページ内容 & ルーティング & HTTPメソッド & 対応するコントローラ\\\hline\hline
-トップページ & / & GET & \multirow{6}{*}{Indexesコントローラ} \\\cline{1-3}
-検索（お酒） & /drink?検索条件 & GET & \\\cline{1-3}
-検索（食材） & /food?検索条件 & GET & \\\cline{1-3}
-検索（店舗） & /store?検索条件 & GET &  \\\cline{1-3}
-検索（観光地等） & /resort?検索条件 & GET & \\\cline{1-3}
-検索（語句） & /search?検索語句 & GET & \\\hline
+トップページ & / & GET & Indexesコントローラ \\\hline
+検索（お酒） & /drink?検索条件 & GET & Drinksコントローラ \\\hline
+検索（食材） & /food?検索条件 & GET & \multirow{3}{*}{Storeコントローラ} \\\cline{1-3}
+検索（店舗） & /store?検索条件 & GET & \\\cline{1-3}
+検索（観光地等） & /resort?検索条件 & GET & \\\hline
+検索（語句） & /search?検索語句 & GET & Indexesコントローラ \\\hline
 \multirow{2}{*}{お酒（詳細）} & \multirow{2}{*}{/:drink\_name}
-& GET & \multirow{4}{*}{Drinksコントローラ} \\\cline{3-3}
- & & POST &  \\\cline{1-3}
-\multirow{2}{*}{お酒（レビュー）} & \multirow{2}{*}{/:drink\_name/review}
-& GET & \\\cline{3-3}
+& GET & \multirow{2}{*}{Drinksコントローラ} \\\cline{3-3}
+ & & POST &  \\\hline
+\multirow{2}{*}{お酒（レビュー）} & \multirow{2}{*}{/:drink\_name/reviews}
+& GET & \multirow{2}{*}{Reviewsコントローラ} \\\cline{3-3}
  & & POST & \\\hline
 \multirow{2}{*}{店舗（詳細）} & \multirow{2}{*}{/store/:store\_name}
-& GET & \multirow{4}{*}{Storesコントローラ} \\\cline{3-3}
- & & POST &  \\\cline{1-3}
-\multirow{2}{*}{店舗（レビュー）}& \multirow{2}{*}{/store/:store\_name/review}
-& GET &  \\\cline{3-3}
+& GET & \multirow{2}{*}{Storesコントローラ} \\\cline{3-3}
+ & & POST &  \\\hline
+\multirow{2}{*}{店舗（レビュー）}& \multirow{2}{*}{/store/:store\_name/reviews}
+& GET & \multirow{2}{*}{Reviewsコントローラ} \\\cline{3-3}
  & & POST &\\\hline
 \multirow{2}{*}{ユーザ登録} & \multirow{2}{*}{/user}
-& GET & \multirow{12}{*}{Userコントローラ} \\\cline{3-3}
+& GET & \multirow{5}{*}{Userコントローラ} \\\cline{3-3}
  & & POST & \\\cline{1-3}
  \multirow{2}{*}{ログイン（ユーザ）} & \multirow{2}{*}{/login}
  & GET & \\\cline{3-3}
  & & POST & \\\cline{1-3}
 マイページ（トップ） & /:user\_name
-& GET & \\\cline{1-3}
+& GET & \\\hline
 \multirow{2}{*}{マイページ（お気に入り）} & /:user\_name/favorites
-& GET & \\\cline{2-3}
- & /:user\_name/favorites/:favorite\_id & DELETE & \\\cline{1-3}
+& GET & \multirow{2}{*}{Favoritesコントローラ} \\\cline{2-3}
+ & /:user\_name/favorites/:favorite\_id & DELETE & \\\hline
 \multirow{2}{*}{マイページ（レビュー）} & /:user\_name/reviews
-& GET & \\\cline{2-3}
- & /user\_name/reviews/:review\_id & DELETE & \\\cline{1-3}
+& GET & \multirow{2}{*}{Reviewsコントローラ} \\\cline{2-3}
+ & /user\_name/reviews/:review\_id & DELETE & \\\hline
 \multirow{3}{*}{マイページ（設定）} & \multirow{3}{*}{/:user\_name/config}
-& GET & \\\cline{3-3}
+& GET & \multirow{3}{*}{Userコントローラ} \\\cline{3-3}
  & & POST & \\\cline{3-3}
  & & DELETE & \\\hline
  \multirow{2}{*}{店舗登録申請} & \multirow{2}{*}{/omise/request}
